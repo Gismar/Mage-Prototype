@@ -1,0 +1,27 @@
+{
+  "Name": "Slime",
+  "Attributes": [
+    {
+      "MaxHealth": 15000 },
+    { "Stat": 5 },
+    { "Damage": 2 },
+    { "CritRate": 20 },
+    { "PhysicalDefense": 125 },
+    { "ProjectileDefense": 1000 },
+    { "MagicalDefense": 75 }
+  ],
+  "Abilities": [
+    {
+      "FileUrl": "PokeData.json",
+      "Level": 1
+    },
+    {
+      "FileUrl": "DefenseUp.json",
+      "Level": 3
+    },
+    {
+      "FileUrl": "DumbDown.json",
+      "Level": 21
+    }
+  ]
+}

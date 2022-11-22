@@ -1,0 +1,16 @@
+{
+  "Name": "Training Dummy",
+  "Level": 0,
+  "Exp": 0,
+  "Traits": [
+    { "MaxHealth": 10000 },
+    { "PhysicalDefense": 150 },
+    { "MagicalDefense": 150 },
+    { "ProjectileDefense": 150 },
+    { "FireDefense": 150 },
+    { "IceDefense": 150 },
+    { "LightDefense": 150 },
+    { "DarkDefense": 150 },
+    { "Evasion": 0 }
+  ]
+}

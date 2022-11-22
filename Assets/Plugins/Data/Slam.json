@@ -1,0 +1,40 @@
+{
+  "Name": "Slam",
+  "Type": "AttackAbility",
+  "DataType": "AttackAbilityData",
+  "Element": "Magical",
+  "Data": [
+    {
+      "Level": 1,
+      "Damage": 200,
+      "CC": {
+        "Name": "Stunned",
+        "Duration": 2
+      }
+    },
+    {
+      "Level": 21,
+      "Damage": 300,
+      "CC": {
+        "Name": "Stunned",
+        "Duration": 3
+      }
+    },
+    {
+      "Level": 22,
+      "Damage": 400,
+      "CC": {
+        "Name": "Stunned",
+        "Duration": 4
+      }
+    },
+    {
+      "Level": 23,
+      "Damage": 500,
+      "CC": {
+        "Name": "Stunned",
+        "Duration": 5
+      }
+    }
+  ]
+}

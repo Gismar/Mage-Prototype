@@ -1,0 +1,14 @@
+{
+	"Name" : "Player",
+	"Level": 5,
+	"Exp": 10,
+	"Traits": [
+		{ "MaxHealth": 10000 },
+		{ "Stat": 10 },
+		{ "Damage": 5 },
+		{ "CritRate": 50 },
+		{ "PhysicalDefense": 150 },
+		{ "MoveSpeed": 100 },
+		{ "AttackSpeed": 10 }
+	]
+}
