@@ -13,26 +13,26 @@ namespace Mage_Prototype.Abilities
         public abstract void Display();
 
         // Makes the process of calling these easier
-        protected AbilityAnimation _animation;
-        protected List<IAbilityComponent> _triggerComponents;
-        protected List<IAbilityComponent> _applicationComponents;
+        public AbilityAnimation AnimationComponent { get; protected set; }
+        public List<IAbilityComponent> TriggerComponents { get; protected set; }
+        public List<IAbilityComponent> ApplicationComponents { get; protected set; }
 
         public void Init(Character owner)
         {
             Caster = owner;
             IAbilityComponent[] components = GetComponentsInChildren<IAbilityComponent>();
-            _triggerComponents = new();
-            _applicationComponents = new();
+            TriggerComponents = new();
+            ApplicationComponents = new();
             foreach (var component in components)
             {
                 switch (component)
                 {
-                    case AbilityAnimation: _animation = (AbilityAnimation)component; break;
-                    case CreateHitbox: _triggerComponents.Add(component); break;
-                    case CreateProjectiles: _triggerComponents.Add(component); break;
-                    case ApplyDamage: _applicationComponents.Add(component); break;
-                    case ApplyEffect: _applicationComponents.Add(component); break;
-                    case ApplyDamageOverTime: _applicationComponents.Add(component); break;
+                    case AbilityAnimation: AnimationComponent = (AbilityAnimation)component; break;
+                    case CreateHitbox: TriggerComponents.Add(component); break;
+                    case CreateProjectiles: TriggerComponents.Add(component); break;
+                    case ApplyDamage: ApplicationComponents.Add(component); break;
+                    case ApplyEffect: ApplicationComponents.Add(component); break;
+                    case ApplyDamageOverTime: ApplicationComponents.Add(component); break;
                 };
 
                 component.Init(owner);
@@ -55,5 +55,16 @@ namespace Mage_Prototype.Abilities
         {
             Owner = owner;
         }
+    }
+
+    /// <summary>
+    /// Used for components where duplicates are expected or for unity serialization
+    /// </summary>
+    public abstract class AbilityComponentContainer : MonoBehaviour, IAbilityComponent
+    {
+        public Character Owner { get; set; }
+
+        public abstract void Activate(Character target);
+        public abstract void Deactivate(Character target);
     }
 }

@@ -11,10 +11,12 @@ namespace Mage_Prototype
         public Action Summon;
         public Action Projectile;
         public Action HitBox;
+        public Action End;
 
         public void DoSummon() => Summon?.Invoke();
         public void DoProjectile() => Projectile?.Invoke();
         public void DoHitBox() => HitBox?.Invoke();
+        public void DoEnd() => End?.Invoke();
 
         //public void ClearEvents() // Avoid other abilities's stuff being called
         //{

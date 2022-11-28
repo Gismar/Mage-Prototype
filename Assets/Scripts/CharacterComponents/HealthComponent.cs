@@ -4,7 +4,7 @@ using Mage_Prototype.Abilities;
 
 namespace Mage_Prototype
 {
-
+    [RequireComponent(typeof(DamageDisplayComponent))]
     public class HealthComponent : MonoBehaviour, ICharacterComponent
     {
         public int CurrentHealth = 0;
@@ -16,16 +16,19 @@ namespace Mage_Prototype
         private TraitInfo _maxHealth;
         private TraitInfo _evasion; 
         private DefenceComponent _defenceComponent;
+        private DamageDisplayComponent _damageDisplayComponent;
 
         public void Init(Dictionary<Trait, int> traits)
         {
             _maxHealth = new TraitInfo(traits.GetValueOrDefault(Trait.MaxHealth));
             _evasion = new TraitInfo(traits.GetValueOrDefault(Trait.Evasion));
             CurrentHealth = Mathf.FloorToInt(_maxHealth.GetTotal());
+
             TryGetComponent(out _defenceComponent);
+            TryGetComponent(out _damageDisplayComponent);
         }
 
-        public void TakeDamage(int damage, Element element)
+        public void TakeDamage(int damage, Element element, bool isCrit)
         {
             if (Random.Range(0, 101) < _evasion.GetTotal())
                 return;
@@ -34,6 +37,8 @@ namespace Mage_Prototype
                 damage = Mathf.FloorToInt(damage * (200 / (_defenceComponent.GetDefenceValue(element) + 100)));
 
             CurrentHealth -= damage;
+
+            _damageDisplayComponent.Display(damage, element, isCrit);
 
             if (CurrentHealth <= 0)
                 Die?.Invoke();

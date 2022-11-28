@@ -40,6 +40,8 @@ namespace Mage_Prototype.Abilities
             _eventTool.HitBox = () => ActivateHitBox();
             _eventTool.Projectile = () => ActivateProjectile();
             _eventTool.Summon = () => ActivateSummon();
+
+            _eventTool.End = () => DeactivateHitBox();
         }
 
         public void Deactivate(Character _) // interupts animation
@@ -54,12 +56,12 @@ namespace Mage_Prototype.Abilities
             if (_projectileComponent != null)
                 _projectileComponent.Activate(_target);
         }
-        public void ActivateHitBox() 
+        public void ActivateHitBox()
         {
             if (_hitBoxComponent != null)
                 _hitBoxComponent.Activate(_target);
         }
-        public void DeactivateHitBox() 
+        public void DeactivateHitBox()
         {
             if (_hitBoxComponent != null)
                 _hitBoxComponent.Deactivate(null);

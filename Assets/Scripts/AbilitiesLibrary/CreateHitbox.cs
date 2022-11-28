@@ -4,18 +4,30 @@ namespace Mage_Prototype.Abilities
 {
     public class CreateHitbox : MonoBehaviour, IAbilityComponent // called by animation
     {
+        [Header("Components triggered by this hitbox")]
+        public ApplyDamage DamageComponent;
+        public ApplyEffect EffectComponent;
+        public ApplyDamageOverTime DamageOverTimeComponent;
+        public bool TargetsAlly;
+
+        [Header("Controlled by Activate/Deactivate")]
         public Collider HitBox;
+        public Rigidbody Rigidbody;
         public Character Owner { get; set; }
+        private Transform _model;
+
+        public void Init(Character owner)
+        {
+            Owner = owner;
+            _model = Owner.GetComponentInChildren<UnityEngine.Animations.Rigging.RigBuilder>().transform;
+        }
 
         public void Activate(Character _) // Created at Owner's location
         {
+            Vector3 playerRot = _model.rotation.eulerAngles;
+            Rigidbody.rotation = Quaternion.Euler(0, playerRot.y - 90, 0);
+            Rigidbody.position = Owner.transform.position; //yes teleport it
             HitBox.enabled = true;
-            Vector3 playerRot = Owner.transform.rotation.eulerAngles;
-            HitBox.transform.SetPositionAndRotation(
-                Owner.transform.position, 
-                Quaternion.Euler(0, playerRot.y, 0)
-            );
-            // enable hitbox
             // play aniomatoin
         }
 
@@ -27,7 +39,21 @@ namespace Mage_Prototype.Abilities
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log($"{other.name} Entered");
+            if (TargetsAlly)
+            {
+                if (other.CompareTag("Ally") && other.TryGetComponent(out Character ally))
+                {
+                    if (DamageComponent != null) DamageComponent.Activate(ally);
+                    if (EffectComponent != null) EffectComponent.Activate(ally);
+                    if (DamageOverTimeComponent != null) DamageOverTimeComponent.Activate(ally);
+                }
+            }
+            else if (other.CompareTag("Enemy") && other.TryGetComponent(out Character enemy))
+            {
+                if (DamageComponent != null) DamageComponent.Activate(enemy);
+                if (EffectComponent != null) EffectComponent.Activate(enemy);
+                if (DamageOverTimeComponent != null) DamageOverTimeComponent.Activate(enemy);
+            }
         }
     }
 }

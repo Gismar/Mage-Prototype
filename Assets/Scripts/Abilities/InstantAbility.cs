@@ -8,9 +8,12 @@ namespace Mage_Prototype
     {
         public override void Cast(Character target)
         {
-            _animation.Activate(null);
-            foreach (var comp in _applicationComponents)
-                comp.Activate(target);
+            // Check if Abled
+            // Check for cooldown
+            // Check for cost
+
+            // Consume Cost
+            AnimationComponent.Activate(null);
         }
 
         public override void Display()

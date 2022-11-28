@@ -2,17 +2,16 @@
 
 namespace Mage_Prototype.Abilities
 {
-    public class ApplyEffect: MonoBehaviour, IAbilityComponent // called by collision
+    public class ApplyEffect: AbilityComponentContainer // called by collision
     {
-        public Effects.Effect[] Effects; // how is this set?
-        public Character Owner { get; set; }
-        public void Activate(Character target)
+        public Effects.Effect Effect; // how is this set?
+        public override void Activate(Character target)
         {
             // apply effects to target
             // subscribe deactivate to enemy's death event
         }
 
-        public void Deactivate(Character target) // when enemy dies
+        public override void Deactivate(Character target) // when enemy dies
         {
             // stops coroutine
         }
