@@ -16,6 +16,8 @@ MonoBehaviour:
   StatsFile: {fileID: 4900000, guid: ad608dc162e89764a97399f9ff888d44, type: 3}
   AbilitiesFiles:
   - {fileID: 4900000, guid: cd45a903848419c4d914b4a691e8c30a, type: 3}
+  - {fileID: 4900000, guid: 2e960359a87c1b642a786631906af7b8, type: 3}
   AbilityPrefabs:
   - {fileID: 2235642831125018034, guid: 6f07504e3b764a6469e51def9abeb360, type: 3}
-  AbilityLevels: 01000000
+  - {fileID: 7978929320867537632, guid: 161a2def1f2b93f4f9e3103908fbe311, type: 3}
+  AbilityLevels: 0100000001000000

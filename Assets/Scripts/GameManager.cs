@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Mage_Prototype.Abilities;
 using Mage_Prototype.Effects;
+using Cinemachine;
 
 namespace Mage_Prototype
 {
@@ -12,10 +13,12 @@ namespace Mage_Prototype
     {
         public GameObject PlayerPrefab;
         public Character TrainingDummy;
+        public CinemachineVirtualCamera Camera;
 
         public void Awake()
         {
             Character player = Instantiate(PlayerPrefab).GetComponent<Character>();
+            Camera.Follow = player.transform;
             JObject file = (JObject)JToken.Parse(player.ScriptableData.StatsFile.text);
 
             Dictionary<Trait, int> traits = file["Traits"].Children<JObject>().ToDictionary(

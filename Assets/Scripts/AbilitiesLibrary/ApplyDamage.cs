@@ -2,16 +2,19 @@
 
 namespace Mage_Prototype.Abilities
 {
-    public class ApplyDamage: AbilityComponentContainer // called by collision
+    public class ApplyDamage: AbilityComponent // called by collision
     {
-        [field: SerializeField] public int AbilityDamage { get; set; } // Only set by Ability Factory or scriptable
+        [field: SerializeField] public TraitSource AbilityDamage { get; private set; } // how is this set?
         [field: SerializeField] public Element AbilityElement { get; set; } // Only set by Ability Factory or scriptable
         public override void Activate(Character target) 
         {
             if (target.TryGetCharacterComponent(out HealthComponent component)) 
             {
                 Owner.TryGetCharacterComponent(out DamageComponent damage);
-                int total = Mathf.FloorToInt(AbilityDamage / 100f * damage.Calculate(out bool isCrit));
+                bool isCrit;
+                int total = AbilityDamage.IsInfoFromSelf ? 
+                    AbilityDamage.Result(Owner, out isCrit) : 
+                    AbilityDamage.Result(target, out isCrit);
 
                 component.TakeDamage(total, AbilityElement, isCrit);
             }

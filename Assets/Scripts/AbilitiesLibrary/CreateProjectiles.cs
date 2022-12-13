@@ -6,33 +6,78 @@ using UnityEngine;
 
 namespace Mage_Prototype.Abilities
 {
-    public class CreateProjectiles: MonoBehaviour, IAbilityComponent // called by animation
+    /// <summary>
+    /// Called by <see cref="AbilityAnimation"/>
+    /// </summary>
+    /// <remarks>
+    /// Intermidiary for <see cref="Abilities.Projectile"/>
+    /// </remarks>
+    public class CreateProjectiles: AbilityComponent // called by animation
     {
         [field: SerializeField] public Projectile ProjectilePrefab { get; private set; } // Change gameobject to something else
         [field: SerializeField] public int CreateAmount { get; private set; }
-        public Character Owner { get; set; }
 
         private List<Projectile> _projectilePool;
+        private Transform _projectileOrigin;
+        private Character _target;
+        /// <summary>
+        /// 3D Model
+        /// </summary>
+        private Transform _ownerModel;
 
-        public void Awake()
+        public override void Init (Character owner)
         {
             _projectilePool = new List<Projectile>(10);
+            Owner = owner;
+            _ownerModel = Owner.GetComponentInChildren<UnityEngine.Animations.Rigging.RigBuilder>().transform;
+            var temp = Owner.GetComponentsInChildren<Transform>();
+            foreach (var item in temp)
+            {
+                if (item.CompareTag("Ability Origin"))
+                {
+                    _projectileOrigin = item;
+                    break;
+                }
+            }
         }
-        public void Activate(Character target)
+
+        public override void Activate(Character target)
         {
-            Projectile projectile = GetProjectileFromPool();
-            projectile.gameObject.SetActive(true);
-
-            Vector3 end;
-            if (target == null)
-                end = Vector3.zero;
-            else
-                end = target.transform.position;
-
-            projectile.Activate(Owner.transform.position, end);
+            _target = target;
+            Debug.Log(_target);
+            StartCoroutine(SpawnProjectiles());
         }
 
-        public void Deactivate(Character _) 
+        private System.Collections.IEnumerator SpawnProjectiles()
+        {
+            for (int i = 0; i < CreateAmount; i++)
+            {
+                Projectile projectile = GetProjectileFromPool();
+                projectile.gameObject.SetActive(true);
+
+                Vector3 end;
+                if (_target == null)
+                    end = GetInfrontOfCharacter();
+                else
+                    end = _target.transform.position + Vector3.up; // Character Coords are at feet
+
+                projectile.Activate(_projectileOrigin.position, end);
+                yield return new WaitForFixedUpdate();
+            }
+        }
+
+        private Vector3 GetInfrontOfCharacter()
+        {
+            Vector3 playerRot = _ownerModel.rotation.eulerAngles; // Only Y axis is being rotated
+            Vector3 pos = Owner.transform.position;
+
+            float angle = (playerRot.y) * Mathf.Deg2Rad;
+            pos += new Vector3(Mathf.Sin(angle) * 10f, 1f, Mathf.Cos(angle) * 10f);
+            Debug.Log(pos);
+            return pos;
+        }
+
+        public override void Deactivate(Character _) 
         {
             throw new Exception("Deactivate on CreatProjectile should never have been called");
         }

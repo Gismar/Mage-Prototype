@@ -1,13 +1,15 @@
-﻿using Mage_Prototype.Abilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Mage_Prototype
+namespace Mage_Prototype.Abilities
 {
+    /// <summary>
+    /// Activated by <see cref="CreateProjectiles"/>
+    /// </summary>
     public class Projectile : MonoBehaviour
     {
         // Temporary
@@ -18,11 +20,11 @@ namespace Mage_Prototype
 
         private float _lerp;
         private float _distance;
-        private IAbilityComponent[] _applicationComponents;
+        private AbilityComponent[] _applicationComponents;
 
         public void Init(Character owner)
         {
-            _applicationComponents = GetComponents<IAbilityComponent>();
+            _applicationComponents = GetComponents<AbilityComponent>();
 
             foreach (var component in _applicationComponents)
                 component.Init(owner);
@@ -54,6 +56,7 @@ namespace Mage_Prototype
         {
             _lerp += (Time.fixedDeltaTime * speed / 100f) / _distance;
             rigidbody.position = spline.GetPoint(_lerp);
+            rigidbody.rotation = spline.GetOrientation(_lerp, Vector3.up);
 
             if (_lerp >= 1)
             {

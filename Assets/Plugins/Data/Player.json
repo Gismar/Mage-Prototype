@@ -2,13 +2,20 @@
 	"Name" : "Player",
 	"Level": 5,
 	"Exp": 10,
+	"ResourceType": "Mana",
 	"Traits": [
-		{ "MaxHealth": 10000 },
 		{ "Stat": 10 },
 		{ "Damage": 5 },
 		{ "CritRate": 50 },
+		{ "CritDamage": 50 },
+
+		{ "MaxHealth": 1000 },
+		{ "HealthRegen": 5 },
+		{ "Resource": 30 },
+		{ "ResourceRegen": 1 },
+
 		{ "PhysicalDefense": 150 },
 		{ "MoveSpeed": 100 },
-		{ "AttackSpeed": 10 }
+		{ "AttackSpeed": 100 }
 	]
 }

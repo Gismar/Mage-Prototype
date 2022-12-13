@@ -9,8 +9,6 @@ namespace Mage_Prototype
 {
     public class CastedAbility : Ability<ChannelAbilityData>
     {
-
-
         public override void Cast(Character target)
         {
           

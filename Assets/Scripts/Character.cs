@@ -11,7 +11,13 @@ namespace Mage_Prototype
     {
         Stat,
         Damage,
+        CritRate,
+        CritDamage,
+
         MaxHealth,
+        HealthRegen,
+        Resource,
+        ResourceRegen,
 
         PhysicalDefense,
         MagicalDefense,
@@ -24,14 +30,12 @@ namespace Mage_Prototype
 
         MoveSpeed,
         AttackSpeed,
-
-        CritRate,
-        CritDamage,
-
         Perception,
         Evasion
     }
 
+    [RequireComponent(typeof(ResourceComponent))]
+    [RequireComponent(typeof(HealthComponent))]
     public class Character : MonoBehaviour
     {
         [field: SerializeField] public CharacterScriptable ScriptableData { get; set; }
@@ -61,7 +65,11 @@ namespace Mage_Prototype
             Components.AddRange(GetComponents<ICharacterComponent>());
 
             foreach (var component in Components)
+            {
                 component.Init(baseAttributes);
+                if (component is HealthComponent hc)
+                    hc.Die += Die;
+            }
 
             _moveSpeed = new TraitInfo(baseAttributes.GetValueOrDefault(Trait.MoveSpeed));
             _attackSpeed = new TraitInfo(baseAttributes.GetValueOrDefault(Trait.AttackSpeed));
@@ -101,6 +109,7 @@ namespace Mage_Prototype
         public void Die()
         {
             Console.WriteLine($"{Name} has died");
+            Destroy(gameObject);
         }
     }
 }

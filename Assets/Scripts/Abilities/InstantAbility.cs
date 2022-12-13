@@ -13,7 +13,7 @@ namespace Mage_Prototype
             // Check for cost
 
             // Consume Cost
-            AnimationComponent.Activate(null);
+            AnimationComponent.Activate(target);
         }
 
         public override void Display()

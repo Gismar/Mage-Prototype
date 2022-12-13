@@ -2,15 +2,21 @@
   "Name": "Training Dummy",
   "Level": 0,
   "Exp": 0,
+  "ResourceType": "Mana",
   "Traits": [
-    { "MaxHealth": 10000 },
+    { "MaxHealth": 1000 },
+    { "HealthRegen": 10 },
+    { "Resource": 100 },
+    { "ResourceRegen": 5 },
+
     { "PhysicalDefense": 150 },
     { "MagicalDefense": 150 },
     { "ProjectileDefense": 150 },
+
     { "FireDefense": 150 },
     { "IceDefense": 150 },
     { "LightDefense": 150 },
     { "DarkDefense": 150 },
-    { "Evasion": 0 }
+    { "Evasion": 25 }
   ]
 }

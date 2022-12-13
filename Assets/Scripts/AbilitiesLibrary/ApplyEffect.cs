@@ -2,12 +2,13 @@
 
 namespace Mage_Prototype.Abilities
 {
-    public class ApplyEffect: AbilityComponentContainer // called by collision
+    public class ApplyEffect: AbilityComponent // called by collision
     {
-        public Effects.Effect Effect; // how is this set?
+        [SerializeField] private BuffAbility _buffAbility;
         public override void Activate(Character target)
         {
             // apply effects to target
+            _buffAbility.Cast(target);
             // subscribe deactivate to enemy's death event
         }
 
