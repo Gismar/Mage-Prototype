@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7461866002877108163}
-  - component: {fileID: 7235854739640149462}
+  - component: {fileID: 853778094323988567}
+  - component: {fileID: 5382244762337179556}
   - component: {fileID: 5989450237354230311}
-  - component: {fileID: 7229354775000818358}
-  - component: {fileID: 5424159815662522449}
   m_Layer: 0
   m_Name: Magic Beam
   m_TagString: Untagged
@@ -36,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7235854739640149462
+--- !u!114 &853778094323988567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,9 +44,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2235642831125018034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a41a3018b0ad3843a94fac0059e5ef0, type: 3}
+  m_Script: {fileID: 11500000, guid: 77f372bbbed8afc4e9f6c0ba469726fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resourceCost: 25
+  _coolDown: 10
+--- !u!114 &5382244762337179556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235642831125018034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe856721756835145870a01a4e77aebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animatorOverride: {fileID: 22100000, guid: a5462f97b8e680f47b6a085721bdd91e, type: 2}
+  _hitBoxComponents:
+  - {fileID: 5989450237354230311}
 --- !u!114 &5989450237354230311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,41 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb174247e4f578d4d844be9b53bb6436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hitbox: {fileID: 3779091204462446447}
---- !u!114 &7229354775000818358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2235642831125018034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e65205431827e3c44a32315560fe62fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ProjectilePrefab>k__BackingField: {fileID: 5250602431826135594, guid: 4ac423a96b3db7441b9f3d40c7a9af38,
-    type: 3}
-  <CreateAmount>k__BackingField: 1
---- !u!114 &5424159815662522449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2235642831125018034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c91eaad2bb4f0f4d91f1828378b0e56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <AnimatorOverride>k__BackingField: {fileID: 22100000, guid: a5462f97b8e680f47b6a085721bdd91e,
-    type: 2}
-  _hitBoxComponent:
-  - {fileID: 5989450237354230311}
-  _projectileComponent: []
-  _weapon: {fileID: 0}
-  _eventTool: {fileID: 0}
+  Hitbox: {fileID: 6547144618430949558}
 --- !u!1 &8768968962426842667
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,11 +88,11 @@ GameObject:
   - component: {fileID: 5785666969048219513}
   - component: {fileID: 3028399954338016043}
   - component: {fileID: 6189560561077841086}
-  - component: {fileID: 3779091204462446447}
   - component: {fileID: 8205463919009102806}
   - component: {fileID: 5764136073489262569}
   - component: {fileID: 233618945364032408}
   - component: {fileID: 977119836062097478}
+  - component: {fileID: 6547144618430949558}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -142,7 +124,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8768968962426842667}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 3
   m_Direction: 1
@@ -163,24 +145,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3779091204462446447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8768968962426842667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2ea8e47613d194b9ecce081beedebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collider: {fileID: 3028399954338016043}
-  _visualEffect: {fileID: 5764136073489262569}
-  _rigidbody: {fileID: 6189560561077841086}
-  _applicationComponent: {fileID: 8205463919009102806}
-  _hitsPerSecond: 4
-  _duration: 1
 --- !u!114 &8205463919009102806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22737a13cd1e154439272e8a271fc823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AbilityDamage>k__BackingField: {fileID: 977119836062097478}
+  <AbilitySource>k__BackingField: {fileID: 977119836062097478}
+  <FinalValueCondition>k__BackingField: {fileID: 0}
+  <CanCrit>k__BackingField: 1
   <AbilityElement>k__BackingField: 3
 --- !u!2083052967 &5764136073489262569
 VisualEffect:
@@ -285,4 +251,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Percent>k__BackingField: 100
+  <BaseValueConditional>k__BackingField: {fileID: 0}
   <IsInfoFromSelf>k__BackingField: 1
+--- !u!114 &6547144618430949558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768968962426842667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c9718d99a567c45b8a7948dffaf876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 3028399954338016043}
+  _visualEffect: {fileID: 5764136073489262569}
+  _rigidbody: {fileID: 6189560561077841086}
+  _applicationComponent: {fileID: 8205463919009102806}
+  _hitsPerSecond: 4
+  _duration: 5

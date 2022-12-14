@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7978929320867537644}
-  - component: {fileID: 7978929320867537645}
-  - component: {fileID: 7978929320867537646}
+  - component: {fileID: 1018381089986351621}
+  - component: {fileID: -3298665475027024759}
   - component: {fileID: 7978929320867537647}
   m_Layer: 0
   m_Name: Magic Orb
@@ -32,9 +32,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7978929320867537645
+--- !u!114 &1018381089986351621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,10 +43,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7978929320867537632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a41a3018b0ad3843a94fac0059e5ef0, type: 3}
+  m_Script: {fileID: 11500000, guid: 77f372bbbed8afc4e9f6c0ba469726fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7978929320867537646
+  _resourceCost: 5
+  _coolDown: 1
+--- !u!114 &-3298665475027024759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,16 +57,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7978929320867537632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c91eaad2bb4f0f4d91f1828378b0e56, type: 3}
+  m_Script: {fileID: 11500000, guid: 2544726f11a2b1343ab83c039b20cfca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AnimatorOverride>k__BackingField: {fileID: 22100000, guid: a5462f97b8e680f47b6a085721bdd91e,
-    type: 2}
-  _hitBoxComponent: []
-  _projectileComponent:
+  _animatorOverride: {fileID: 22100000, guid: a5462f97b8e680f47b6a085721bdd91e, type: 2}
+  _projectileComponents:
   - {fileID: 7978929320867537647}
-  _weapon: {fileID: 0}
-  _eventTool: {fileID: 0}
 --- !u!114 &7978929320867537647
 MonoBehaviour:
   m_ObjectHideFlags: 0

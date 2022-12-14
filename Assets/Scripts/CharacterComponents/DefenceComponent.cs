@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using Mage_Prototype.Abilities;
+using Mage_Prototype.AbilityLibrary;
 
 namespace Mage_Prototype
 {
@@ -13,7 +13,6 @@ namespace Mage_Prototype
         private TraitInfo _physicalDefence;
         private TraitInfo _magicalDefence;
         private TraitInfo _projectileDefence;
-
         private TraitInfo _fireDefence;
         private TraitInfo _iceDefence;
         private TraitInfo _lightDefence;

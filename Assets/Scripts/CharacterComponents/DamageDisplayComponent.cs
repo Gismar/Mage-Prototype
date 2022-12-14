@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using Mage_Prototype.Abilities;
+using Mage_Prototype.AbilityLibrary;
 using static UnityEngine.Rendering.DebugUI;
 using System.Buffers;
 
 namespace Mage_Prototype
 {
+    /// <summary>
+    /// Will be converted to ECS 
+    /// </summary>
     public class DamageDisplayComponent : MonoBehaviour
     {
         [SerializeField] private DamageDisplay _damageDisplayPrefab;

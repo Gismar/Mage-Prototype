@@ -11,8 +11,8 @@
 
 		{ "MaxHealth": 1000 },
 		{ "HealthRegen": 5 },
-		{ "Resource": 30 },
-		{ "ResourceRegen": 1 },
+		{ "Resource": 100 },
+		{ "ResourceRegen": 10 },
 
 		{ "PhysicalDefense": 150 },
 		{ "MoveSpeed": 100 },

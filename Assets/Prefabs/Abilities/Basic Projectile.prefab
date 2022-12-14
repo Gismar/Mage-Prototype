@@ -147,7 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22737a13cd1e154439272e8a271fc823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AbilityDamage>k__BackingField: {fileID: 4969851232307513768}
+  <AbilitySource>k__BackingField: {fileID: 4969851232307513768}
+  <FinalValueCondition>k__BackingField: {fileID: 0}
+  <CanCrit>k__BackingField: 0
   <AbilityElement>k__BackingField: 3
 --- !u!114 &4969851232307513768
 MonoBehaviour:
@@ -162,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Percent>k__BackingField: 75
+  <BaseValueConditional>k__BackingField: {fileID: 0}
   <IsInfoFromSelf>k__BackingField: 1
 --- !u!114 &7881488241133420067
 MonoBehaviour:

@@ -1,4 +1,4 @@
-using Mage_Prototype.Abilities;
+using Mage_Prototype.AbilityLibrary;
 using Mage_Prototype.Effects;
 using System;
 using System.Collections.Generic;
@@ -45,16 +45,14 @@ namespace Mage_Prototype
         public float AttackSpeed => _attackSpeed.GetTotal();
         public float MoveSpeed => _moveSpeed.GetTotal();
 
-        public List<AbilityContainer> Abilities { get; private set; }
+        public List<Ability> Abilities { get; private set; }
         public List<Effect> Effects { get; } = new();
-        public List<CrowdControl> CrowdControl { get; } = new();
 
         private TraitInfo _moveSpeed;
         private TraitInfo _attackSpeed;
 
-        public bool CanMove => !CrowdControl.Any(cc => !cc.Data.CanMove);
-        public bool CanAttack => !CrowdControl.Any(cc => !cc.Data.CanAttack);
-        public bool CanCast => !CrowdControl.Any(cc => !cc.Data.CanCast);
+        public bool IsRooted => _moveSpeed.GetTotal() == 0;
+        public bool IsStunned => _attackSpeed.GetTotal() == 0;
 
         public void Init(string name, int level, Dictionary<Trait, int> baseAttributes)
         {
@@ -75,7 +73,7 @@ namespace Mage_Prototype
             _attackSpeed = new TraitInfo(baseAttributes.GetValueOrDefault(Trait.AttackSpeed));
         }
 
-        public void AddAbility(AbilityContainer ability)
+        public void AddAbility(Ability ability)
         {
             ability.Caster = this;
             Abilities.Add(ability);

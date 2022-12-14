@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Mage_Prototype.Abilities;
+using Mage_Prototype.AbilityLibrary;
 
 namespace Mage_Prototype
 {
     [RequireComponent(typeof(DamageDisplayComponent))]
     public class HealthComponent : MonoBehaviour, ICharacterComponent
     {
-        public bool CanDie = true; //Chanage to property once done prototyping
-        
         public float AdvancedHealthMultiplier { get; private set; } = 2;
         public int CurrentHealth { get; private set; }
         public int AdvancedHealth { get; private set; }
@@ -20,12 +18,12 @@ namespace Mage_Prototype
 
         private TraitInfo _maxHealth;
         private TraitInfo _healthRegen;
-        private TraitInfo _evasion; 
+        private TraitInfo _evasion;
         private DefenceComponent _defenceComponent;
         private DamageDisplayComponent _damageDisplayComponent;
-
         private float _healthRegenTimer;
         private float _advancedHealthDecayTimer;
+        [SerializeField] private bool canDie = true;
 
         public void Init(Dictionary<Trait, int> traits)
         {
@@ -66,7 +64,7 @@ namespace Mage_Prototype
 
             _damageDisplayComponent.Display(damage, element, isCrit);
 
-            if (!CanDie)
+            if (!canDie)
             {
                 CurrentHealth = Mathf.Max(10, CurrentHealth);
                 return;

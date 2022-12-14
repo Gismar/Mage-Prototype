@@ -2,7 +2,7 @@ using Mage_Prototype.Effects;
 using System;
 using UnityEngine;
 
-namespace Mage_Prototype.Abilities
+namespace Mage_Prototype.AbilityLibrary
 {
     public enum Element
     {
@@ -48,7 +48,7 @@ namespace Mage_Prototype.Abilities
     {
         public string Name;
         public int Level;
-        public Effect<BuffData>[] Effects;
+        public Effect[] Effects;
         public (Cost mat, int val) Cost;
         public GameObject[] EffectPrefabs;
         public bool Stackable;
