@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mage_Prototype.AbilityLibrary
+﻿namespace Mage_Prototype.AbilityLibrary
 {
-    public class BonusDamagedToStunned : ConditionalContainer
+    public sealed class BonusDamagedToStunned : PredicateChecker
     {
         public override bool CheckCondition(Character target, out float result)
         {

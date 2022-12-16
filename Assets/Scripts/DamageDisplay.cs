@@ -19,7 +19,7 @@ namespace Mage_Prototype
 
         private IEnumerator Deactivate()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             gameObject.SetActive(false);
         }
     }

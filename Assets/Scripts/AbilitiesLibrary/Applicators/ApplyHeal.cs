@@ -1,13 +1,9 @@
-﻿using Mage_Prototype.AbilityLibrary;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
 {
+    [RequireComponent(typeof(TraitSource))]
     public class ApplyHeal : AbilityComponent
     {
         [field: SerializeField] public TraitSource AbilitySource { get; private set; }
@@ -27,6 +23,9 @@ namespace Mage_Prototype.AbilityLibrary
                 total += CanCrit ? AbilitySource.Result(target, out isCrit) : AbilitySource.Result(target);
 
             component.Heal(total);
+
+            if (NextComponent != null)
+                NextComponent.Activate(target);
         }
     }
 }

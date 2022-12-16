@@ -2,13 +2,19 @@
 
 namespace Mage_Prototype.AbilityLibrary
 {
-    public class ApplyDamage: AbilityComponent // called by collision
+    [RequireComponent(typeof(TraitSource))]
+    public sealed class ApplyDamage: AbilityComponent
     {
-        [field: SerializeField] public TraitSource AbilitySource { get; private set; } // how is this set?
-        [field: SerializeField] public ConditionalContainer FinalValueCondition { get; private set; }
-        [field: SerializeField] public bool CanCrit { get; private set; }
-        [field: SerializeField] public Element AbilityElement { get; private set; } // Only set by Ability Factory or scriptable
+        [SerializeField] private TraitSource _abilitySource;
+        [SerializeField] private PredicateChecker _finalValueCondition;
+        [SerializeField] private bool _canCrit;
+        [SerializeField] private Element _abilityElement;
 
+        public override void Init(Character owner)
+        {
+            _abilitySource.Init(owner);
+            base.Init(owner);
+        }
 
         public override void Activate(Character target) 
         {
@@ -18,22 +24,23 @@ namespace Mage_Prototype.AbilityLibrary
             int total = 0;
             bool isCrit = false;
 
-            if (AbilitySource.IsInfoFromSelf)
-                total += CanCrit ? AbilitySource.Result(Owner, out isCrit) : AbilitySource.Result(Owner);
-            else
-                total += CanCrit ? AbilitySource.Result(target, out isCrit) : AbilitySource.Result(target);
+            Character temp = _abilitySource.IsInfoFromSelf ? Owner : target;
+            total += _canCrit ? _abilitySource.Result(temp, out isCrit) : _abilitySource.Result(temp);
 
 
-            if (FinalValueCondition == null)
+            if (_finalValueCondition == null)
             {
-                component.TakeDamage(total, AbilityElement, isCrit);
+                component.TakeDamage(total, _abilityElement, isCrit);
                 return;
             }
 
-            if (FinalValueCondition.CheckCondition(target, out float result))
-                component.TakeDamage((int)(total * result), AbilityElement, isCrit);
+            if (_finalValueCondition.CheckCondition(target, out float result))
+                component.TakeDamage((int)(total * result), _abilityElement, isCrit);
             else
-                component.TakeDamage(total, AbilityElement, isCrit);
+                component.TakeDamage(total, _abilityElement, isCrit);
+
+            if (NextComponent != null)
+                NextComponent.Activate(target);
         }
     }
 }

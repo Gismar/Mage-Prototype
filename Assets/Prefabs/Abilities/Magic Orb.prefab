@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7978929320867537644}
   - component: {fileID: 1018381089986351621}
-  - component: {fileID: -3298665475027024759}
+  - component: {fileID: 9027368017121510325}
   - component: {fileID: 7978929320867537647}
   m_Layer: 0
   m_Name: Magic Orb
@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceCost: 5
   _coolDown: 1
---- !u!114 &-3298665475027024759
+  _nextComponent: {fileID: 9027368017121510325}
+--- !u!114 &9027368017121510325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,12 +58,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7978929320867537632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2544726f11a2b1343ab83c039b20cfca, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c91eaad2bb4f0f4d91f1828378b0e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NextComponent>k__BackingField: {fileID: 7978929320867537647}
   _animatorOverride: {fileID: 22100000, guid: a5462f97b8e680f47b6a085721bdd91e, type: 2}
-  _projectileComponents:
-  - {fileID: 7978929320867537647}
 --- !u!114 &7978929320867537647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65205431827e3c44a32315560fe62fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ProjectilePrefab>k__BackingField: {fileID: 5250602431826135594, guid: 4ac423a96b3db7441b9f3d40c7a9af38,
+  <NextComponent>k__BackingField: {fileID: 0}
+  _projectilePrefab: {fileID: 5250602431826135594, guid: 4ac423a96b3db7441b9f3d40c7a9af38,
     type: 3}
-  <CreateAmount>k__BackingField: 1
+  _createAmount: 1

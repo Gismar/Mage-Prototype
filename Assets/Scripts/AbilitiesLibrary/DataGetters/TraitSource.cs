@@ -11,7 +11,7 @@ namespace Mage_Prototype.AbilityLibrary
 
         [field: SerializeField] 
         [Tooltip("Additive")] 
-        public ConditionalContainer BaseValueConditional { get; private set; }
+        public PredicateChecker BaseValueConditional { get; private set; }
 
         [field: SerializeField] 
         public bool IsInfoFromSelf { get; private set; }

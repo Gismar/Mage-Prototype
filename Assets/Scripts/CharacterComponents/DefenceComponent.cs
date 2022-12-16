@@ -41,7 +41,8 @@ namespace Mage_Prototype
                 Element.Fire => _fireDefence.GetTotal(),
                 Element.Ice => _iceDefence.GetTotal(),
                 Element.Light => _lightDefence.GetTotal(),
-                Element.Dark => _darkDefence.GetTotal()
+                Element.Dark => _darkDefence.GetTotal(),
+                _ => 0
             };
         }
 

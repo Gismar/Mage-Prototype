@@ -19,6 +19,10 @@ namespace Mage_Prototype
         public override IEnumerator Remove()
         {
             yield return new WaitForSeconds(_duration);
+
+            if (!_target.isActiveAndEnabled)
+                yield break;
+
             if (_target.TryGetTraitInfo(_trait, out TraitInfo traitInfo))
                 traitInfo.ChangeValueBy(_modifier, -_value);
 

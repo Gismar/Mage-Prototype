@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
 {
-    public class GetHealth : TraitSource
+    public sealed class GetHealth : TraitSource
     {
         public enum Health { Current, Max, Missing}
         [SerializeField] private Health _type;
@@ -11,7 +11,7 @@ namespace Mage_Prototype.AbilityLibrary
         public override int Result(Character target)
         {
             if (!target.TryGetCharacterComponent(out HealthComponent component))
-                throw new Exception($"{target} does not contain HealthComponent");
+                throw new Exception($"{target.name} does not contain HealthComponent");
 
             int value = _type switch
             {

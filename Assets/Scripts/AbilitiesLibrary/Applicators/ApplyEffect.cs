@@ -42,12 +42,9 @@ namespace Mage_Prototype.AbilityLibrary
                     currentEffect.Apply(target);
                 }
             }
-        }
 
-        public override void Deactivate(Character target) // when enemy dies
-        {
-            foreach (Effect effects in target.Effects)
-                effects.StopAllCoroutines();
+            if (NextComponent != null)
+                NextComponent.Activate(target);
         }
     }
 }

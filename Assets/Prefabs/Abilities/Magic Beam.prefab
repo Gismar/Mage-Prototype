@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7461866002877108163}
   - component: {fileID: 853778094323988567}
-  - component: {fileID: 5382244762337179556}
-  - component: {fileID: 5989450237354230311}
+  - component: {fileID: 3605420020445257900}
   m_Layer: 0
   m_Name: Magic Beam
   m_TagString: Untagged
@@ -49,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceCost: 25
   _coolDown: 10
---- !u!114 &5382244762337179556
+  _nextComponent: {fileID: 3605420020445257900}
+--- !u!114 &3605420020445257900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,25 +58,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2235642831125018034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe856721756835145870a01a4e77aebd, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c91eaad2bb4f0f4d91f1828378b0e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <NextComponent>k__BackingField: {fileID: 6289511792669135099}
   _animatorOverride: {fileID: 22100000, guid: a5462f97b8e680f47b6a085721bdd91e, type: 2}
-  _hitBoxComponents:
-  - {fileID: 5989450237354230311}
---- !u!114 &5989450237354230311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2235642831125018034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb174247e4f578d4d844be9b53bb6436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hitbox: {fileID: 6547144618430949558}
 --- !u!1 &8768968962426842667
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,11 +74,12 @@ GameObject:
   - component: {fileID: 5785666969048219513}
   - component: {fileID: 3028399954338016043}
   - component: {fileID: 6189560561077841086}
-  - component: {fileID: 8205463919009102806}
   - component: {fileID: 5764136073489262569}
+  - component: {fileID: 6289511792669135099}
+  - component: {fileID: 3852590464868404691}
   - component: {fileID: 233618945364032408}
+  - component: {fileID: 1679396712500086204}
   - component: {fileID: 977119836062097478}
-  - component: {fileID: 6547144618430949558}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -145,22 +132,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8205463919009102806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8768968962426842667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22737a13cd1e154439272e8a271fc823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <AbilitySource>k__BackingField: {fileID: 977119836062097478}
-  <FinalValueCondition>k__BackingField: {fileID: 0}
-  <CanCrit>k__BackingField: 1
-  <AbilityElement>k__BackingField: 3
 --- !u!2083052967 &5764136073489262569
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -169,7 +140,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8768968962426842667}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 067315fa49ba5324ea58e2cfdd48451f, type: 3}
+  m_Asset: {fileID: 0}
   m_InitialEventName: 
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -198,6 +169,40 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!114 &6289511792669135099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768968962426842667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdb3d8b19a95424ca822ea38f6e3912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextComponent>k__BackingField: {fileID: 3852590464868404691}
+  _collider: {fileID: 3028399954338016043}
+  _rigidbody: {fileID: 6189560561077841086}
+  _affectsOwner: 0
+  _hitsPerSecond: 10
+  _duration: 3
+--- !u!114 &3852590464868404691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768968962426842667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cece7cc69a4d248b778f3005df8c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextComponent>k__BackingField: {fileID: 1679396712500086204}
+  _visualEffect: {fileID: 5764136073489262569}
+  _visualEffectAsset: {fileID: 8926484042661614526, guid: 067315fa49ba5324ea58e2cfdd48451f,
+    type: 3}
 --- !u!73398921 &233618945364032408
 VFXRenderer:
   serializedVersion: 1
@@ -238,6 +243,23 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1679396712500086204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768968962426842667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22737a13cd1e154439272e8a271fc823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextComponent>k__BackingField: {fileID: 0}
+  _abilitySource: {fileID: 977119836062097478}
+  _finalValueCondition: {fileID: 0}
+  _canCrit: 0
+  _abilityElement: 3
 --- !u!114 &977119836062097478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,24 +272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b4a8563f12ef94dab6cdafe4fc992e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Percent>k__BackingField: 100
+  <Percent>k__BackingField: 10
   <BaseValueConditional>k__BackingField: {fileID: 0}
   <IsInfoFromSelf>k__BackingField: 1
---- !u!114 &6547144618430949558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8768968962426842667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6c9718d99a567c45b8a7948dffaf876, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collider: {fileID: 3028399954338016043}
-  _visualEffect: {fileID: 5764136073489262569}
-  _rigidbody: {fileID: 6189560561077841086}
-  _applicationComponent: {fileID: 8205463919009102806}
-  _hitsPerSecond: 4
-  _duration: 5

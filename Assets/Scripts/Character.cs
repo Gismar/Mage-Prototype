@@ -107,6 +107,9 @@ namespace Mage_Prototype
         public void Die()
         {
             Console.WriteLine($"{Name} has died");
+            foreach (Effect effect in Effects)
+                effect.StopCoroutine(effect.Remove());
+
             Destroy(gameObject);
         }
     }

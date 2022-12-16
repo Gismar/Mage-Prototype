@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
 {
-    public class GetTrait : TraitSource
+    public sealed class GetTrait : TraitSource
     {
         [SerializeField] private Trait _trait;
 
         public override int Result(Character target)
         {
             if (!target.TryGetTraitInfo(_trait, out TraitInfo trait))
-                throw new Exception($"{target} does not contain Trait {_trait}");
+                throw new Exception($"{target.name} does not contain Trait {_trait}");
 
             if (BaseValueConditional == null)
                 return (int)(trait.GetTotal() * (Percent * 0.01f));

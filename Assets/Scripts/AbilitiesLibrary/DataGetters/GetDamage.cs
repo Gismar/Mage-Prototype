@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
 {
-    public class GetDamage : TraitSource
+    public sealed class GetDamage : TraitSource
     {
         public override int Result(Character target)
         {
-            if (!target.TryGetComponent(out DamageComponent component))
-                throw new Exception($"{target} does not contain DamageComponent");
+            if (!target.TryGetCharacterComponent(out DamageComponent component))
+                throw new Exception($"{target.name} does not contain DamageComponent");
 
             if (BaseValueConditional == null)
                 return (int)((Percent * 0.01f) * component.GetRange());
@@ -22,8 +22,8 @@ namespace Mage_Prototype.AbilityLibrary
 
         public override int Result(Character target, out bool isCrit)
         {
-            if (!target.TryGetComponent(out DamageComponent component))
-                throw new Exception($"{target} does not contain DamageComponent");
+            if (!target.TryGetCharacterComponent(out DamageComponent component))
+                throw new Exception($"{target.name} does not contain DamageComponent");
 
             if (BaseValueConditional == null)
                 return (int)((Percent * 0.01f) * component.GetRangeWithCrit(out isCrit));

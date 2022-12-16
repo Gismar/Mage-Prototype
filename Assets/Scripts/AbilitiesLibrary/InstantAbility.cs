@@ -20,7 +20,7 @@ namespace Mage_Prototype
                     return;
 
             _coolDownTimer = Time.timeSinceLevelLoad + _coolDown;
-            AnimationComponent.Activate(target);
+            _nextComponent.Activate(target);
         }
     }
 }

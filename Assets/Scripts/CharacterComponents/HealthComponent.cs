@@ -45,7 +45,7 @@ namespace Mage_Prototype
                 damage = Mathf.FloorToInt(damage * (200 / (_defenceComponent.GetDefenceValue(element) + 100)));
 
             int difference = AdvancedHealth - damage;
-            Debug.Log(difference);
+            //Debug.Log(difference);
             if (difference <= 0)
             {
                 AdvancedHealth = 0;
