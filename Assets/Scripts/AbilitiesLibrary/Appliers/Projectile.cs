@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -6,39 +7,70 @@ namespace Mage_Prototype.AbilityLibrary
 {
     public sealed class Projectile : AbilityComponent
     {
-        // Temporary
-        [SerializeField] private Rigidbody _rigidbody;
-        [SerializeField] private Spline _spline;
-        [SerializeField] private bool _isLinear;
-        [SerializeField] private bool _canAffectOwner;
-        [SerializeField] private float _speed;
-        [SerializeField] private int _maxPierceCount;
+        [field:SerializeField] public SphereCaster Lollipop { get; private set; }
 
+        // Static Data
+        private Rigidbody _rigidbody;
+        private Spline _spline;
+
+        // Init Data
+        private bool _isLinear;
+        private float _maxSqDistance;
+        private int _speed;
+        private int _maxPierceCount;
+
+        // Dynamic variables
         private int _pierceCounter;
         private float _lerp;
         private float _distance;
         private Transform _projectileOrigin;
         private Transform _ownerModel;
 
-        public override void Init(Character owner)
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody>();
+            _spline = GetComponent<Spline>();
+        }
+
+        public override void Init(Ability owner, JToken data, int index)
         {
             Owner = owner;
-            _ownerModel = Owner.GetComponentInChildren<RigBuilder>().transform;
-            var temp = Owner.GetComponentsInChildren<Transform>();
+            if (Lollipop == null)
+                throw new Exception($"{Owner.Name}'s Projectile is missing a Lollipop component (SphereCaster)");
+
+            if (NextComponent == null)
+                throw new Exception($"Next Component of {Owner.Name}'s Projectile IS NULL");
+
+            GetModels();
+
+            _isLinear = data[index]["Linear"].Value<bool>();
+            _maxSqDistance = data[index]["MaxDistance"].Value<float>();
+            _speed = data[index]["Speed"].Value<int>();
+            _maxPierceCount = data[index]["PierceCount"].Value<int>();
+
+            _maxSqDistance *= _maxSqDistance;
+
+            Lollipop.Init(owner, data, ++index);
+            NextComponent.Init(owner, data, ++index);
+        }
+
+        private void GetModels()
+        {
+            if (_ownerModel == null)
+                _ownerModel = Owner.Caster.GetComponentInChildren<RigBuilder>().transform;
+
+            if (_projectileOrigin != null)
+                return;
+
+            var temp = Owner.Caster.GetComponentsInChildren<Transform>();
             foreach (var item in temp)
-            {
-                // Get Weapon's Ability Origin to spawn projectile from
+            {                                                        
                 if (item.CompareTag("Ability Origin"))
                 {
                     _projectileOrigin = item;
                     break;
                 }
             }
-
-            if (NextComponent == null)
-                throw new Exception($"Next Component of {gameObject.name}'s Projectile IS NULL");
-
-            NextComponent.Init(owner);
         }
 
         public override void Activate(Character target)
@@ -52,7 +84,7 @@ namespace Mage_Prototype.AbilityLibrary
             else
                 end = target.transform.position + Vector3.up; // Character Coords are at feet
 
-            if (true)//isLinear)
+            if (_isLinear)
             {
                 aDir = Vector3.zero;
                 bDir = Vector3.zero;
@@ -61,6 +93,8 @@ namespace Mage_Prototype.AbilityLibrary
             {
                 //a = Angle it nicely
                 //b = inverse of a
+                aDir = Vector3.up;
+                bDir = Vector3.down;
             }
 
             _distance = Vector3.Distance(_projectileOrigin.position, end);
@@ -83,20 +117,18 @@ namespace Mage_Prototype.AbilityLibrary
             _rigidbody.rotation = _spline.GetOrientation(_lerp, Vector3.up);
 
             if (_lerp >= 1)
+            {
+                Lollipop.Activate(null);
                 Deactivate();
+            }
         }
 
         public void OnTriggerEnter(Collider other)
         {
-            if (!_canAffectOwner)
-                if (other.gameObject == Owner.gameObject)
-                    return;
-
             if (!other.TryGetComponent(out Character target))
                 return;
 
-            if (NextComponent != null)
-                NextComponent.Activate(target);
+            NextComponent.Activate(target);
 
             if (_pierceCounter == 0)
             {

@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using Newtonsoft.Json.Linq;
+using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
 {
     public abstract class AbilityComponent : MonoBehaviour
     {
-        public Character Owner { get; set; }
+        public Ability Owner { get; set; }
 
         // Chain of Responsibility
         [field: SerializeField]
-        public AbilityComponent NextComponent { get; protected set; }
+        public AbilityComponent NextComponent { get; protected set; } // Only allow the skill manager and inspector to set this
 
         public virtual void Deactivate()
         {
@@ -16,12 +17,7 @@ namespace Mage_Prototype.AbilityLibrary
                 NextComponent.Deactivate();
         }
 
-        public virtual void Init(Character owner)
-        {
-            Owner = owner;
-            if (NextComponent != null)
-                NextComponent.Init(owner);
-        }
+        public abstract void Init(Ability owner, JToken dataFile, int index);
 
         /// <summary>
         /// Each component does their own thing and handles their own NextComponent.Activate()

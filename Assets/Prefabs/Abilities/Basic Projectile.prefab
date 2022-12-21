@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5250602431826135594}
   - component: {fileID: -2438784383068513248}
   - component: {fileID: 4969851232307513768}
+  - component: {fileID: -3988459372611736003}
   m_Layer: 0
   m_Name: Basic Projectile
   m_TagString: Untagged
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <NextComponent>k__BackingField: {fileID: -2438784383068513248}
+  _lollipop: {fileID: -3988459372611736003}
   _rigidbody: {fileID: 3816505619023602449}
   _spline: {fileID: 7881488241133420067}
   _isLinear: 0
@@ -187,6 +189,24 @@ MonoBehaviour:
   <Percent>k__BackingField: 75
   <BaseValueConditional>k__BackingField: {fileID: 0}
   <IsInfoFromSelf>k__BackingField: 1
+--- !u!114 &-3988459372611736003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848520531947905626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04492e682c3954445932ff2c2b0d0765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NextComponent>k__BackingField: {fileID: -2438784383068513248}
+  _radius: 1
+  _mask:
+    serializedVersion: 2
+    m_Bits: 64
+  _maxDistance: 0.1
 --- !u!1 &7122074395409196593
 GameObject:
   m_ObjectHideFlags: 0

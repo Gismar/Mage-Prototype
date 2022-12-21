@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
@@ -7,11 +8,18 @@ namespace Mage_Prototype.AbilityLibrary
     {
         public enum Health { Current, Max, Missing}
         [SerializeField] private Health _type;
-
+        public override void Init(Character owner, JToken data, int index)
+        {
+            base.Init(owner, data, index);
+            _type = Enum.Parse<Health>(data[index]["Health"].Value<string>());
+        }
         public override int Result(Character target)
         {
+            if (IsInfoFromSelf)
+                target = _owner;
+
             if (!target.TryGetCharacterComponent(out HealthComponent component))
-                throw new Exception($"{target.name} does not contain HealthComponent");
+                throw new Exception($"{target.name} does not contain HealthComponent"); // need's full unity name
 
             int value = _type switch
             {
@@ -21,7 +29,7 @@ namespace Mage_Prototype.AbilityLibrary
                 _ => 0
             };
 
-            return (int)(value * (Percent * 0.01f));
+            return (int)(value * (_percent * 0.01f));
         }
 
         public override int Result(Character target, out bool isCrit)
@@ -31,11 +39,11 @@ namespace Mage_Prototype.AbilityLibrary
             if (!isCrit)
                 return Result(target);
 
-            float oldPercent = Percent;
+            float oldPercent = _percent;
 
-            Percent *= 1f + (_critDamage.GetTotal() * 0.01f); // 100% critDamage = double health
+            _percent *= 1f + (_critDamage.GetTotal() * 0.01f); // 100% critDamage = double health
             int result = Result(target);
-            Percent = oldPercent;
+            _percent = oldPercent;
 
             return result;
         }

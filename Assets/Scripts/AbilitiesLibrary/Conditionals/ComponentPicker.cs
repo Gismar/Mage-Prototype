@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Newtonsoft.Json.Linq;
+using System;
+using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
 {
@@ -16,10 +18,17 @@ namespace Mage_Prototype.AbilityLibrary
         /// </summary>
         [SerializeField] protected AbilityComponent _predicateIsFalseComponent;
 
-        public override void Init(Character owner)
+
+        public override void Init(Ability owner, JToken dataFile, int index)
         {
-            _predicateIsTrueComponent.Init(owner);
-            _predicateIsFalseComponent.Init(owner);
+            Owner = owner;
+            if (_predicateIsTrueComponent == null)
+                throw new Exception($"{Owner.Name}'s Component Picker is missing a Predicate Is True Component");
+            if (_predicateIsFalseComponent == null)
+                throw new Exception($"{Owner.Name}'s Component Picker is missing a Predicate Is False Component");
+
+            _predicateIsTrueComponent.Init(owner, dataFile, index);
+            _predicateIsFalseComponent.Init(owner, dataFile, ++index);
         }
     }
 }

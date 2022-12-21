@@ -1,44 +1,176 @@
 {
   "Name": "Magic Beam",
-  "Type": "AttackAbility",
-  "DataType": "AttackAbilityData",
-  "Element": "Magical",
-  "Data": [
-    {
-      "Level": 0,
-      "Damage": 125
-    },
-    {
-      "Level": 1,
-      "Damage": 150
-    },
-    {
-      "Level": 2,
-      "Damage": 175
-    },
-    {
-      "Level": 3,
-      "Damage": 200
-    },
-    {
-      "Level": 4,
-      "Damage": 225
-    },
-    {
-      "Level": 5,
-      "Damage": 250
-    },
-    {
-      "Level": 21,
-      "Damage": 300
-    },
-    {
-      "Level": 22,
-      "Damage": 350
-    },
-    {
-      "Level": 23,
-      "Damage": 400
-    }
-  ]
+  "LevelData": {
+    "0": [
+      {
+        "Name": "Lingering Hitbox",
+        "AffectsOwner": false,
+        "HitsPerSecond": 4,
+        "Duration": 3.00
+      },
+      {
+        "Name": "Apply Damage",
+        "TraitSourceName": "Damage",
+        "CanCrit": true,
+        "Element": "Magical"
+      },
+      {
+        "Name": "Get Damage",
+        "Percent": 125,
+        "InfoFromSelf": true
+      }
+    ],
+    "1": [
+      {
+        "Name": "Lingering Hitbox",
+        "AffectsOwner": false,
+        "HitsPerSecond": 4,
+        "Duration": 3.25
+      },
+      {
+        "Name": "Apply Damage",
+        "TraitSourceName": "Damage",
+        "CanCrit": true,
+        "Element": "Magical"
+      },
+      {
+        "Name": "Get Damage",
+        "Percent": 150,
+        "InfoFromSelf": true
+      }
+    ],
+    "2": [
+      {
+        "Name": "Lingering Hitbox",
+        "AffectsOwner": false,
+        "HitsPerSecond": 4,
+        "Duration": 3.50
+      },
+      {
+        "Name": "Apply Damage",
+        "TraitSourceName": "Damage",
+        "CanCrit": true,
+        "Element": "Magical"
+      },
+      {
+        "Name": "Get Damage",
+        "Percent": 175,
+        "InfoFromSelf": true
+      }
+    ],
+    "3": [
+      {
+        "Name": "Lingering Hitbox",
+        "AffectsOwner": false,
+        "HitsPerSecond": 4,
+        "Duration": 3.75
+      },
+      {
+        "Name": "Apply Damage",
+        "TraitSourceName": "Damage",
+        "CanCrit": true,
+        "Element": "Magical"
+      },
+      {
+        "Name": "Get Damage",
+        "Percent": 200,
+        "InfoFromSelf": true
+      }
+    ],
+    "4": [
+      {
+        "Name": "Lingering Hitbox",
+        "AffectsOwner": false,
+        "HitsPerSecond": 4,
+        "Duration": 4.00
+      },
+      {
+        "Name": "Apply Damage",
+        "TraitSourceName": "Damage",
+        "CanCrit": true,
+        "Element": "Magical"
+      },
+      {
+        "Name": "Get Damage",
+        "Percent": 225,
+        "InfoFromSelf": true
+      }
+    ],
+    "5": [
+      {
+        "Name": "Lingering Hitbox",
+        "AffectsOwner": false,
+        "HitsPerSecond": 4,
+        "Duration": 4.25
+      },
+      {
+        "Name": "Apply Damage",
+        "TraitSourceName": "Damage",
+        "CanCrit": true,
+        "Element": "Magical"
+      },
+      {
+        "Name": "Get Damage",
+        "Percent": 250,
+        "InfoFromSelf": true
+      }
+    ],
+    "11": [
+      {
+        "Name": "Lingering Hitbox",
+        "AffectsOwner": false,
+        "HitsPerSecond": 5,
+        "Duration": 4.50
+      },
+      {
+        "Name": "Apply Damage",
+        "TraitSourceName": "Damage",
+        "CanCrit": true,
+        "Element": "Magical"
+      },
+      {
+        "Name": "Get Damage",
+        "Percent": 300,
+        "InfoFromSelf": true
+      }
+    ],
+    "12": [
+      {
+        "Name": "Lingering Hitbox",
+        "AffectsOwner": false,
+        "HitsPerSecond": 5,
+        "Duration": 4.75
+      },
+      {
+        "Name": "Apply Damage",
+        "TraitSourceName": "Damage",
+        "CanCrit": true,
+        "Element": "Magical"
+      },
+      {
+        "Name": "Get Damage",
+        "Percent": 350,
+        "InfoFromSelf": true
+      }
+    ],
+    "13": [
+      {
+        "Name": "Lingering Hitbox",
+        "AffectsOwner": false,
+        "HitsPerSecond": 5,
+        "Duration": 5.00
+      },
+      {
+        "Name": "Apply Damage",
+        "TraitSourceName": "Damage",
+        "CanCrit": true,
+        "Element": "Magical"
+      },
+      {
+        "Name": "Get Damage",
+        "Percent": 400,
+        "InfoFromSelf": true
+      }
+    ]
+  }
 }

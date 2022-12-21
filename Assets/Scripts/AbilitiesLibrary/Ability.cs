@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
@@ -8,6 +6,7 @@ namespace Mage_Prototype.AbilityLibrary
     public abstract class Ability: MonoBehaviour
     {
         public Character Caster { get; set; }
+        public string Name { get; set; }
 
         [SerializeField] protected int _resourceCost;
         [SerializeField] protected float _coolDown;
@@ -16,10 +15,11 @@ namespace Mage_Prototype.AbilityLibrary
         protected float _coolDownTimer;
 
         public abstract void Cast(Character target);
-        public void Init(Character owner)
+        public void Init(Character owner, JToken data, string name)
         {
             Caster = owner;
-            _nextComponent.Init(owner);
+            Name = name;
+            _nextComponent.Init(this, data, 0);
         }
     }
 }

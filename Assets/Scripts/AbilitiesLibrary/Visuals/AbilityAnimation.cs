@@ -1,6 +1,6 @@
-﻿using System.Linq.Expressions;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using UnityEngine;
-using UnityEngine.VFX;
 
 namespace Mage_Prototype.AbilityLibrary
 {
@@ -11,10 +11,10 @@ namespace Mage_Prototype.AbilityLibrary
         private Animator _weapon;
         private AnimationEventTool _eventTool;
 
-        public override void Init(Character owner)
+        public override void Init(Ability owner, JToken data, int index)
         {
             Owner = owner;
-            var temp = Owner.GetComponentsInChildren<Animator>();
+            var temp = Owner.Caster.GetComponentsInChildren<Animator>();
             foreach (Animator animator in temp)
             {
                 if (animator.CompareTag("Weapon"))
@@ -25,8 +25,10 @@ namespace Mage_Prototype.AbilityLibrary
                 }
             }
 
-            if (NextComponent != null)
-                NextComponent.Init(owner);
+            if (NextComponent == null)
+                throw new Exception($"{Owner.Name}'s Ability Animation Component does not have a Next Component");
+
+            NextComponent.Init(owner, data, index);
         }
 
         public override void Activate(Character target)

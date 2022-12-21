@@ -19,7 +19,7 @@ namespace Mage_Prototype
         {
             Character player = Instantiate(PlayerPrefab).GetComponent<Character>();
             Camera.Follow = player.transform;
-            JObject file = (JObject)JToken.Parse(player.ScriptableData.StatsFile.text);
+            JObject file = JObject.Parse(player.ScriptableData.StatsFile.text);
 
             Dictionary<Trait, int> traits = file["Traits"].Children<JObject>().ToDictionary(
                     key => Enum.Parse<Trait>(key.Properties().First().Name),
@@ -49,14 +49,14 @@ namespace Mage_Prototype
 
         private static void CreateAbility(Character character, GameObject prefab, string abilityText, int level)
         {
-            //JObject file = (JObject)JToken.Parse(abilityText);
+            JObject file = JObject.Parse(abilityText);
 
-            //string name = (string)file["Name"];
-            //JToken data = file["Data"].First(d => (int)d["Level"] == level);
+            string name = file["Name"].Value<string>();
+            JToken data = file["LevelData"][level.ToString()];
 
             if (InstantAbilityFactory.Instance.TryCreateAbility(prefab, out InstantAbility ability))
             {
-                ability.Init(character);
+                ability.Init(character, data, name);
                 character.AddAbility(ability);
             }
         }

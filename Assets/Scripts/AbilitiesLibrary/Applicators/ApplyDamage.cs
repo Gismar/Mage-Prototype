@@ -1,32 +1,61 @@
-﻿using UnityEngine;
+﻿using Newtonsoft.Json.Linq;
+using System;
+using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
 {
-    [RequireComponent(typeof(TraitSource))]
     public sealed class ApplyDamage: AbilityComponent
     {
-        [SerializeField] private TraitSource _abilitySource;
-        [SerializeField] private PredicateChecker _finalValueCondition;
-        [SerializeField] private bool _canCrit;
-        [SerializeField] private Element _abilityElement;
+        private TraitSource _abilitySource;
+        private PredicateChecker _finalValueCondition;
 
-        public override void Init(Character owner)
+        private bool _canCrit;
+        private Element _abilityElement;
+
+        public override void Init(Ability owner, JToken data, int index)
         {
-            _abilitySource.Init(owner);
-            base.Init(owner);
+            Owner = owner;
+
+            _canCrit = data[index]["CanCrit"].Value<bool>();
+            _abilityElement = Enum.Parse<Element>(data[index]["Element"].Value<string>());
+
+            if (_abilitySource == null) // Prevent constantly adding components
+                _abilitySource = StaticHelpers.CreateTraitSource(data[index]["TraitSourceName"].Value<string>(), transform);
+
+            if (_abilitySource == null) // Actually check that it worked
+                throw new Exception($"{Owner.Name}'s Apply Damage does not contain a proper TraitSourceName (Check JSON file)");
+
+            _abilitySource.Init(Owner.Caster, data, ++index);
+
+            string name = (string)data[index]["PredicateName"]; // Returns null if there is nothing
+
+            if (name != null)
+            {
+                int value = data[index]["PredicateValue"].Value<int>();
+                _finalValueCondition = StaticHelpers.CreatePredicateChecker(name, transform, value);
+            }
+
+            if (NextComponent != null)
+                NextComponent.Init(owner, data, ++index);
         }
 
         public override void Activate(Character target) 
         {
-            if (!target.TryGetCharacterComponent(out HealthComponent component))
+            if (target == null)
+            {
+                if (NextComponent != null)
+                    NextComponent.Activate(null);
                 return;
+            }
 
-            int total = 0;
+            if (!target.TryGetCharacterComponent(out HealthComponent component))
+            {
+                Debug.LogWarning($"{target.name} does not contain a Health Component");
+                return;
+            }
+
             bool isCrit = false;
-
-            Character temp = _abilitySource.IsInfoFromSelf ? Owner : target;
-            total += _canCrit ? _abilitySource.Result(temp, out isCrit) : _abilitySource.Result(temp);
-
+            int total = _canCrit ? _abilitySource.Result(target, out isCrit) : _abilitySource.Result(target);
 
             if (_finalValueCondition == null)
             {

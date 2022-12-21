@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static UnityEngine.UI.GridLayoutGroup;
+﻿using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace Mage_Prototype.AbilityLibrary
 {
@@ -29,6 +23,30 @@ namespace Mage_Prototype.AbilityLibrary
             Vector3 euler = model.eulerAngles; 
 
             return Quaternion.Euler(90, 0, -euler.y);
+        }
+
+        public static TraitSource CreateTraitSource(string name, Transform transform)
+        {
+            return name switch
+            {
+                "Trait" => transform.AddComponent<GetTrait>(),
+                "Health" => transform.AddComponent<GetHealth>(),
+                "Damage" => transform.AddComponent<GetDamage>(),
+                _ => null
+            };
+        }
+
+        public static PredicateChecker CreatePredicateChecker(string name, Transform transform, int value)
+        {
+            PredicateChecker temp = name switch
+            {
+                "BonusDamagedToStunned" => transform.AddComponent<BonusDamagedToStunned>(),
+                _ => null
+            };
+            if (temp != null)
+                temp.Init(value);
+
+            return temp;
         }
     }
 }
