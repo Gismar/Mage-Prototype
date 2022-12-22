@@ -36,15 +36,16 @@ namespace Mage_Prototype.AbilityLibrary
             };
         }
 
-        public static PredicateChecker CreatePredicateChecker(string name, Transform transform, int value)
+        public static PredicateChecker CreatePredicateChecker(string name, Transform transform, float value, float threshold)
         {
             PredicateChecker temp = name switch
             {
-                "BonusDamagedToStunned" => transform.AddComponent<BonusDamagedToStunned>(),
+                "BonusToStunned" => transform.AddComponent<BonusDamageToStunned>(),
+                "BonusToLowHealth" => transform.AddComponent<BonusDamageToLowHealth>(),
                 _ => null
             };
             if (temp != null)
-                temp.Init(value);
+                temp.Init(value, threshold);
 
             return temp;
         }

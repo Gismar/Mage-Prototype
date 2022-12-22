@@ -1,6 +1,6 @@
 ﻿namespace Mage_Prototype.AbilityLibrary
 {
-    public sealed class BonusDamagedToStunned : PredicateChecker
+    public sealed class BonusDamageToStunned : PredicateChecker
     {
         public override bool CheckCondition(Character target, out float result)
         {

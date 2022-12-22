@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Mage_Prototype
 {
-    public enum ResoureType
+    public enum ResourceType
     {
         Mana,
         Arrow,
@@ -19,7 +19,7 @@ namespace Mage_Prototype
         public int CurrentResource { get; private set; }
         public bool IsResourceFull { get; private set; }
         public int MaxResource => (int)_resource.GetTotal();
-        public ResoureType ResoureType; //Change to property once done prototyping
+        public ResourceType ResoureType; //Change to property once done prototyping
 
         private TraitInfo _resource;
         private TraitInfo _resourceRegen;

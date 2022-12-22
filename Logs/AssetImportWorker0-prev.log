@@ -15,7 +15,7 @@ D:/Unity Projects/Mage Prototype
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50643
+57733
 Successfully changed project path to: D:/Unity Projects/Mage Prototype
 D:/Unity Projects/Mage Prototype
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/Unity Projects/Mage Prototype
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 169.84 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 220.95 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.1.3f1 (1cedbfe38737)
 [Subsystems] Discovering subsystems at path D:/Unity Projects/2022.1.3f1/Editor/Data/Resources/UnitySubsystems
@@ -63,56 +63,56 @@ Initialize mono
 Mono path[0] = 'D:/Unity Projects/2022.1.3f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Unity Projects/2022.1.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/Unity Projects/2022.1.3f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56568
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56428
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Unity Projects/2022.1.3f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Unity Projects/2022.1.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003840 seconds.
+Registered in 0.053759 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 181.10 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 171.66 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.067 seconds
+- Completed reload, in  1.119 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1068ms)
-		BeginReloadAssembly (132ms)
+	ReloadAssembly (1120ms)
+		BeginReloadAssembly (139ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (792ms)
-			LoadAssemblies (132ms)
+		EndReloadAssembly (791ms)
+			LoadAssemblies (138ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (183ms)
-				TypeCache.Initialize (183ms)
-					TypeCache.ScanAssembly (181ms)
+			SetupTypeCache (176ms)
+				TypeCache.Initialize (175ms)
+					TypeCache.ScanAssembly (173ms)
 				ResolveRequiredComponents (1ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (48ms)
-			SetupLoadedEditorAssemblies (481ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (498ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (13ms)
-				SetLoadedEditorAssemblies (12ms)
-				RefreshPlugins (181ms)
-				BeforeProcessingInitializeOnLoad (3ms)
-				ProcessInitializeOnLoadAttributes (203ms)
-				ProcessInitializeOnLoadMethodAttributes (70ms)
+				InitializePlatformSupportModulesInManaged (76ms)
+				SetLoadedEditorAssemblies (10ms)
+				RefreshPlugins (172ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (181ms)
+				ProcessInitializeOnLoadMethodAttributes (57ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.014461 seconds.
+Registered in 0.010266 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Mage Prototype\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Unity Projects\Mage Prototype\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 168.27 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 171.80 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 System.Exception: Error! Visual Scripting: couldn't find visual scripting package
   at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00025] in D:\Unity Projects\Mage Prototype\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:22 
@@ -131,47 +131,73 @@ UnityEngine.Logger:Log (UnityEngine.LogType,object)
 UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
+Error saving file Library/StateCache/LayerSettings/9e/9ecc5c3c162a7aba29bafa64c8b94b7c.json. Error: System.IO.IOException: Sharing violation on path D:\Unity Projects\Mage Prototype\Library\StateCache\LayerSettings\9e\9ecc5c3c162a7aba29bafa64c8b94b7c.json
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <f3d0e7ec4efc44199bb22a77b1c8eff4>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) [0x00000] in <f3d0e7ec4efc44199bb22a77b1c8eff4>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+  at System.IO.StreamWriter..ctor (System.String path, System.Boolean append, System.Text.Encoding encoding, System.Int32 bufferSize) [0x00055] in <f3d0e7ec4efc44199bb22a77b1c8eff4>:0 
+  at System.IO.StreamWriter..ctor (System.String path, System.Boolean append, System.Text.Encoding encoding) [0x00000] in <f3d0e7ec4efc44199bb22a77b1c8eff4>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.StreamWriter..ctor(string,bool,System.Text.Encoding)
+  at System.IO.File.WriteAllText (System.String path, System.String contents, System.Text.Encoding encoding) [0x00034] in <f3d0e7ec4efc44199bb22a77b1c8eff4>:0 
+  at UnityEditor.StateCache`1[T].SetState (UnityEngine.Hash128 key, T obj) [0x0004b] in <c131a2bddec5488c9acbc95523658064>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.StateCache`1<UnityEditor.Tools/LayerSettings>:SetState (UnityEngine.Hash128,UnityEditor.Tools/LayerSettings)
+UnityEditor.Tools:set_lockedLayers (int)
+UnityEditor.Tools:OnEnable ()
+UnityEngine.ScriptableObject:CreateInstance (System.Type)
+UnityEngine.ScriptableObject:CreateInstance<UnityEditor.Tools> ()
+UnityEditor.Tools:get_get ()
+UnityEditor.Tools:get_visibleLayers ()
+UnityEditor.Animations.Rigging.BoneRendererUtils:.cctor () (at Library/PackageCache/com.unity.animation.rigging@1.1.1/Editor/Utils/BoneRendererUtils.cs:121)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.animation.rigging@1.1.1/Editor/Utils/BoneRendererUtils.cs Line: 121)
+
 Mono: successfully reloaded assembly
-- Completed reload, in  2.977 seconds
+- Completed reload, in  2.653 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2978ms)
-		BeginReloadAssembly (193ms)
+	ReloadAssembly (2654ms)
+		BeginReloadAssembly (185ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (31ms)
-		EndReloadAssembly (2630ms)
-			LoadAssemblies (209ms)
+			CreateAndSetChildDomain (27ms)
+		EndReloadAssembly (2342ms)
+			LoadAssemblies (176ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (449ms)
-				TypeCache.Initialize (432ms)
-					TypeCache.ScanAssembly (426ms)
-				ResolveRequiredComponents (17ms)
+			SetupTypeCache (416ms)
+				TypeCache.Initialize (400ms)
+					TypeCache.ScanAssembly (394ms)
+				ResolveRequiredComponents (16ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (127ms)
-			SetupLoadedEditorAssemblies (1814ms)
+			RebuildScriptCaches (130ms)
+			SetupLoadedEditorAssemblies (1589ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (8ms)
-				RefreshPlugins (168ms)
-				BeforeProcessingInitializeOnLoad (172ms)
-				ProcessInitializeOnLoadAttributes (1353ms)
-				ProcessInitializeOnLoadMethodAttributes (105ms)
-				AfterProcessingInitializeOnLoad (3ms)
+				RefreshPlugins (172ms)
+				BeforeProcessingInitializeOnLoad (162ms)
+				ProcessInitializeOnLoadAttributes (1148ms)
+				ProcessInitializeOnLoadMethodAttributes (90ms)
+				AfterProcessingInitializeOnLoad (4ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 1.46 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 1.34 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 6567 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 50 unused Assets / (1.1 MB). Loaded Objects now: 7047.
 Memory consumption went from 1.03 GB to 1.03 GB.
-Total: 16.381700 ms (FindLiveObjects: 0.599900 ms CreateObjectMapping: 0.668400 ms MarkObjects: 14.883600 ms  DeleteObjects: 0.228600 ms)
+Total: 16.184300 ms (FindLiveObjects: 0.671900 ms CreateObjectMapping: 0.694700 ms MarkObjects: 14.283000 ms  DeleteObjects: 0.520200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -185,139 +211,13 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1284.836246 seconds.
-  path: Assets/Prefabs/Abilities/Magic Beam.prefab
-  artifactKey: Guid(6f07504e3b764a6469e51def9abeb360) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Abilities/Magic Beam.prefab using Guid(6f07504e3b764a6469e51def9abeb360) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '558fe61bae76e52a8de13889891f2973') in 0.415734 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 63.821942 seconds.
-  path: Assets/Prefabs/Abilities/Powerup.prefab
-  artifactKey: Guid(bd903a9d377a0ac46a0a223df89b01be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Abilities/Powerup.prefab using Guid(bd903a9d377a0ac46a0a223df89b01be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '113dea6e73f42ce27a7f5ae0ad3ad3e4') in 0.321757 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.714328 seconds.
+  Time since last request: 7976.012925 seconds.
   path: Assets/Prefabs/Abilities/Basic Projectile.prefab
   artifactKey: Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Abilities/Basic Projectile.prefab using Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '079581fd6d2af9b4191937c9e1b42e2d') in 0.126219 seconds 
+Start importing Assets/Prefabs/Abilities/Basic Projectile.prefab using Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b878f9ade041d52d98db4ccacaae8e3') in 0.369424 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.341240 seconds.
-  path: Assets/Prefabs/Abilities/Basic Projectile.prefab
-  artifactKey: Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Abilities/Basic Projectile.prefab using Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccbc42266e1788e62e3cdc4b24869d2b') in 0.015835 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.116923 seconds.
-  path: Assets/Prefabs/Abilities/Basic Projectile.prefab
-  artifactKey: Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Abilities/Basic Projectile.prefab using Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a69e0143ca88582ad7a38f2b70afa3a') in 0.027088 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.874662 seconds.
-  path: Assets/Prefabs/Abilities/Basic Projectile.prefab
-  artifactKey: Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Abilities/Basic Projectile.prefab using Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67852e8723c9a560753c01ef776ba99b') in 0.026823 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.487706 seconds.
-  path: Assets/Prefabs/Abilities/Basic Projectile.prefab
-  artifactKey: Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Abilities/Basic Projectile.prefab using Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdee06339d74b6e283e93e8fc8f56b35') in 0.018036 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.014790 seconds.
-  path: Assets/Prefabs/Abilities/Basic Projectile.prefab
-  artifactKey: Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Abilities/Basic Projectile.prefab using Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd924e776065e6705fef620766a777955') in 0.024244 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.877402 seconds.
-  path: Assets/Prefabs/Abilities/Basic Projectile.prefab
-  artifactKey: Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Abilities/Basic Projectile.prefab using Guid(4ac423a96b3db7441b9f3d40c7a9af38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2aa43215a1f3a3951468085f5222a058') in 0.043389 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 171.489267 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8252b10c7a29d382118a97b642bbbea') in 0.113038 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 581.555624 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2573d16f365bee8bbc664f53f8b8d7fa') in 0.002727 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.698695 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11c4718a46f93e67fc6c3615ac1e1bef') in 0.001809 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 395.615102 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a610dec9d331abf39367c35e69496308') in 0.001881 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.673706 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68064dd763dafe1d3f7e09a9dbf27d2b') in 0.001832 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 808.848499 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cac85fe6d4d9291eb6f9947bdd5afd83') in 0.002474 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 12.870521 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19eceb9afab2e497f7253bb8a7e9db7f') in 0.002053 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1512.095641 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd86ef07f56cf5530c469740c806110c9') in 0.002274 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 119.214232 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09c021968b657a6f66c17c052190edd9') in 0.002600 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 25.136666 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc808bc58b10d6a7b2f9ad9ab0011138') in 0.001542 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.954104 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8989644bd0ba329a9c1dfecc84ba18a8') in 0.002457 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4789.315812 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54b55abf971e472af260e5990783a8fc') in 0.029132 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.746618 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd5be50d3f4884fef1f72e821f014554') in 0.003103 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 250.263203 seconds.
-  path: Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs
-  artifactKey: Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/AbilitiesLibrary/Applicators/ApplyDamage.cs using Guid(22737a13cd1e154439272e8a271fc823) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5d8d82f9b27dd167664de6fca2838ac') in 0.002598 seconds 
+  Time since last request: 1631.581335 seconds.
+  path: Assets/Plugins/Data/MagicBeam.json
+  artifactKey: Guid(2e960359a87c1b642a786631906af7b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Data/MagicBeam.json using Guid(2e960359a87c1b642a786631906af7b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c344db67bbc05917b6bfe2ae3188773') in 0.014795 seconds 

@@ -15,7 +15,7 @@ namespace Mage_Prototype.AbilityLibrary
         }
         public override int Result(Character target)
         {
-            if (IsInfoFromSelf)
+            if (_isInfoFromSelf)
                 target = _owner;
 
             if (!target.TryGetCharacterComponent(out HealthComponent component))

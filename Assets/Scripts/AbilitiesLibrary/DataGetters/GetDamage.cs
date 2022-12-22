@@ -7,7 +7,7 @@ namespace Mage_Prototype.AbilityLibrary
     {
         public override int Result(Character target)
         {
-            if (IsInfoFromSelf)
+            if (_isInfoFromSelf)
                 target = _owner;
 
             if (!target.TryGetCharacterComponent(out DamageComponent component))
@@ -25,7 +25,7 @@ namespace Mage_Prototype.AbilityLibrary
 
         public override int Result(Character target, out bool isCrit)
         {
-            if (IsInfoFromSelf)
+            if (_isInfoFromSelf)
                 target = _owner;
 
             if (!target.TryGetCharacterComponent(out DamageComponent component))

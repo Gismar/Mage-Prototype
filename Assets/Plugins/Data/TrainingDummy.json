@@ -4,19 +4,19 @@
   "Exp": 0,
   "ResourceType": "Mana",
   "Traits": [
-    { "MaxHealth": 1000 },
-    { "HealthRegen": 100 },
+    { "MaxHealth": 10000 },
+    { "HealthRegen": 200 },
     { "Resource": 100 },
     { "ResourceRegen": 5 },
 
-    { "PhysicalDefense": 150 },
-    { "MagicalDefense": 150 },
-    { "ProjectileDefense": 150 },
+    { "PhysicalDefense": 500 },
+    { "MagicalDefense": 500 },
+    { "ProjectileDefense": 500 },
 
-    { "FireDefense": 150 },
-    { "IceDefense": 150 },
-    { "LightDefense": 150 },
-    { "DarkDefense": 150 },
+    { "FireDefense": 500 },
+    { "IceDefense": 500 },
+    { "LightDefense": 500 },
+    { "DarkDefense": 500 },
     { "Evasion": 25 }
   ]
 }

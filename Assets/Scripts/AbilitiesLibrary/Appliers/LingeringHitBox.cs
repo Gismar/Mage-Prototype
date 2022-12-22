@@ -95,7 +95,7 @@ namespace Mage_Prototype.AbilityLibrary
 
         private void OnTriggerEnter(Collider other)
         {
-            if (_affectsOwner == false && other.gameObject == Owner.gameObject) 
+            if (_affectsOwner == false && other.gameObject == Owner.Caster.gameObject) 
                 return;
 
             if (other.TryGetComponent(out Character target))
@@ -109,7 +109,7 @@ namespace Mage_Prototype.AbilityLibrary
 
         private void OnTriggerExit(Collider other)
         {
-            if (_affectsOwner == false && other.gameObject == Owner.gameObject)
+            if (_affectsOwner == false && other.gameObject == Owner.Caster.gameObject)
                 return;
 
             if (other.TryGetComponent(out Character target))

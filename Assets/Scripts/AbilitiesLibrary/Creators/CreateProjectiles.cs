@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
@@ -18,14 +19,15 @@ namespace Mage_Prototype.AbilityLibrary
 
         private void Awake() => _projectilePool = new List<Projectile>(10);
 
-        public override void Init(Ability owner, JToken data, int index)
+        public override void Init(Ability owner, JToken dataFile, int index)
         {
             Owner = owner;
-            if (_projectilePrefab == null)
-                throw new Exception($"{Owner.Name}'s Create Projectile is missing Projectile Prefab");
 
-            _createAmount = data[index]["ProjectileCreationCount"].Value<int>();
-            _dataFile = data;
+            string path = AssetDatabase.GUIDToAssetPath(dataFile[index]["GUID"].Value<string>());
+            _projectilePrefab = AssetDatabase.LoadAssetAtPath<Projectile>(path);
+
+            _createAmount = dataFile[index]["ProjectileCreationCount"].Value<int>();
+            _dataFile = dataFile;
             _index = index + 1;
         }
 

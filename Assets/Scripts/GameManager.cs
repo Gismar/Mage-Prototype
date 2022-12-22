@@ -6,6 +6,7 @@ using UnityEngine;
 using Mage_Prototype.AbilityLibrary;
 using Mage_Prototype.Effects;
 using Cinemachine;
+using System.Data;
 
 namespace Mage_Prototype
 {
@@ -27,15 +28,8 @@ namespace Mage_Prototype
             );
 
             player.Init((string)file["Name"], 1, traits);
-            for (int i = 0; i < player.ScriptableData.AbilitiesFiles.Length; i++)
-            {
-                CreateAbility(
-                    character: player,
-                    prefab: player.ScriptableData.AbilityPrefabs[i],
-                    abilityText: player.ScriptableData.AbilitiesFiles[i].text,
-                    level: player.ScriptableData.AbilityLevels[i]
-                );
-            }
+            foreach (AbilityScriptable ability in player.ScriptableData.Abilities)
+                CreateAbility(player, ability);
 
             file = (JObject)JToken.Parse(TrainingDummy.ScriptableData.StatsFile.text);
 
@@ -47,17 +41,35 @@ namespace Mage_Prototype
             TrainingDummy.Init((string)file["Name"], 1, traits);
         }
 
-        private static void CreateAbility(Character character, GameObject prefab, string abilityText, int level)
+        private static void CreateAbility(Character character, AbilityScriptable scriptableData)
         {
-            JObject file = JObject.Parse(abilityText);
+            JObject file = JObject.Parse(scriptableData.BaseDataFile.text);
 
             string name = file["Name"].Value<string>();
-            JToken data = file["LevelData"][level.ToString()];
+            JToken data = file["LevelData"][scriptableData.Level.ToString()];
 
-            if (InstantAbilityFactory.Instance.TryCreateAbility(prefab, out InstantAbility ability))
+            foreach (ModifierScriptable modScriptable in scriptableData.Modifiers)
+            {
+                JObject modFile = JObject.Parse(modScriptable.DataFile.text);
+                JToken modData = modFile["LevelData"][modScriptable.Level.ToString()];
+                MergeModifier(data, modData);
+            }
+
+            if (InstantAbilityFactory.Instance.TryCreateAbility(scriptableData.AbilityPrefab, out InstantAbility ability))
             {
                 ability.Init(character, data, name);
                 character.AddAbility(ability);
+            }
+        }
+
+        private static void MergeModifier(JToken data, JToken modifier)
+        {
+            int modifyingCount = modifier.Children().Count();
+
+            for (int i = 0; i < modifyingCount; i++)
+            {
+                JObject item = data.First(p => p["Name"].Value<string>() == modifier[i]["Name"].Value<string>()) as JObject;
+                item.Merge((JObject)modifier[i]);
             }
         }
     }

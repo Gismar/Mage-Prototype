@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bd3e1bf35ddc0045a06604963f7f098, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: c02f5f43b9818694581beba7ff3ff42d, type: 3}
+  m_Name: Elemental Beam Mod
   m_EditorClassIdentifier: 
-  Name: Player
-  StatsFile: {fileID: 4900000, guid: ad608dc162e89764a97399f9ff888d44, type: 3}
-  Abilities:
-  - {fileID: 11400000, guid: 9bec2c0a68ed2794c9789fd129a6a39d, type: 2}
+  Name: Elemental Beam
+  Level: 1
+  DataFile: {fileID: 4900000, guid: 34aaf0b2ee69dc3409b01bfaa7432fae, type: 3}

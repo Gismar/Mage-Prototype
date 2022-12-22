@@ -6,11 +6,10 @@ namespace Mage_Prototype.AbilityLibrary
 {
     public sealed class ApplyDamage: AbilityComponent
     {
-        private TraitSource _abilitySource;
-        private PredicateChecker _finalValueCondition;
-
         private bool _canCrit;
         private Element _abilityElement;
+        private TraitSource _abilitySource;
+        private PredicateChecker _predicateChecker;
 
         public override void Init(Ability owner, JToken data, int index)
         {
@@ -31,8 +30,9 @@ namespace Mage_Prototype.AbilityLibrary
 
             if (name != null)
             {
-                int value = data[index]["PredicateValue"].Value<int>();
-                _finalValueCondition = StaticHelpers.CreatePredicateChecker(name, transform, value);
+                float value = data[index]["PredicateValue"].Value<float>();
+                float threshold = data[index]["PredicateThreshold"].Value<float>();
+                _predicateChecker = StaticHelpers.CreatePredicateChecker(name, transform, value, threshold);
             }
 
             if (NextComponent != null)
@@ -57,13 +57,13 @@ namespace Mage_Prototype.AbilityLibrary
             bool isCrit = false;
             int total = _canCrit ? _abilitySource.Result(target, out isCrit) : _abilitySource.Result(target);
 
-            if (_finalValueCondition == null)
+            if (_predicateChecker == null)
             {
                 component.TakeDamage(total, _abilityElement, isCrit);
                 return;
             }
 
-            if (_finalValueCondition.CheckCondition(target, out float result))
+            if (_predicateChecker.CheckCondition(target, out float result))
                 component.TakeDamage((int)(total * result), _abilityElement, isCrit);
             else
                 component.TakeDamage(total, _abilityElement, isCrit);

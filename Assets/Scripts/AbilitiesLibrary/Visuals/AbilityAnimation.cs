@@ -1,17 +1,18 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace Mage_Prototype.AbilityLibrary
 {
     public sealed class AbilityAnimation: AbilityComponent
     {
-        [SerializeField] private AnimatorOverrideController _animatorOverride;
-
+        private AnimatorOverrideController _animatorOverride;
         private Animator _weapon;
         private AnimationEventTool _eventTool;
 
-        public override void Init(Ability owner, JToken data, int index)
+        public override void Init(Ability owner, JToken dataFile, int index)
         {
             Owner = owner;
             var temp = Owner.Caster.GetComponentsInChildren<Animator>();
@@ -25,10 +26,13 @@ namespace Mage_Prototype.AbilityLibrary
                 }
             }
 
+            string path = AssetDatabase.GUIDToAssetPath(dataFile[index]["GUID"].Value<string>());
+            _animatorOverride = AssetDatabase.LoadAssetAtPath<AnimatorOverrideController>(path);
+
             if (NextComponent == null)
                 throw new Exception($"{Owner.Name}'s Ability Animation Component does not have a Next Component");
 
-            NextComponent.Init(owner, data, index);
+            NextComponent.Init(owner, dataFile, ++index);
         }
 
         public override void Activate(Character target)

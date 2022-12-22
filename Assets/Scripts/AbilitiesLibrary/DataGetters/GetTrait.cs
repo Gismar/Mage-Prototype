@@ -16,7 +16,7 @@ namespace Mage_Prototype.AbilityLibrary
 
         public override int Result(Character target)
         {
-            if (IsInfoFromSelf)
+            if (_isInfoFromSelf)
                 target = _owner;
 
             if (!target.TryGetTraitInfo(_trait, out TraitInfo trait))

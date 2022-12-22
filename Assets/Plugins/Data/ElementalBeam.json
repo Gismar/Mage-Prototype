@@ -1,0 +1,78 @@
+﻿{
+  "Name": "Elemental Beam",
+  "LevelData": {
+    "1": [
+      {
+        "Name": "Visual Effect",
+        "GUID": "c5fffbe55a62aff44b01a319701058f7"
+      },
+      {
+        "Name": "Apply Damage",
+        "PredicateName": "BonusToLowHealth",
+        "PredicateValue": 1.1,
+        "PredicateThreshold": 0.1
+      }
+    ],
+    "2": [
+      {
+        "Name": "Visual Effect",
+        "GUID": "c5fffbe55a62aff44b01a319701058f7"
+      },
+      {
+        "Name": "Apply Damage",
+        "PredicateName": "BonusToLowHealth",
+        "PredicateValue": 1.15,
+        "PredicateThreshold": 0.15
+      }
+    ],
+    "3": [
+      {
+        "Name": "Visual Effect",
+        "GUID": "c5fffbe55a62aff44b01a319701058f7"
+      },
+      {
+        "Name": "Apply Damage",
+        "PredicateName": "BonusToLowHealth",
+        "PredicateValue": 1.2,
+        "PredicateThreshold": 0.2
+      }
+    ],
+    "11": [
+      {
+        "Name": "Visual Effect",
+        "GUID": "c5fffbe55a62aff44b01a319701058f7"
+      },
+      {
+        "Name": "Apply Damage",
+        "PredicateName": "BonusToLowHealth",
+        "PredicateValue": 1.3,
+        "PredicateThreshold": 0.25
+      }
+    ],
+    "12": [
+      {
+        "Name": "Visual Effect",
+        "GUID": "c5fffbe55a62aff44b01a319701058f7"
+      },
+      {
+        "Name": "Apply Damage",
+        "PredicateName": "BonusToLowHealth",
+        "PredicateValue": 1.4,
+        "PredicateThreshold": 0.3
+      }
+    ],
+    "13": [
+      {
+        "Name": "Visual Effect",
+        "GUID": "c5fffbe55a62aff44b01a319701058f7"
+      },
+      {
+        "Name": "Apply Damage",
+        "PredicateName": "BonusToLowHealth",
+        "PredicateValue": 1.5,
+        "PredicateThreshold": 0.35
+      }
+    ]
+  }
+
+}

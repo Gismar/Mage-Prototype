@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -7,15 +8,25 @@ namespace Mage_Prototype.AbilityLibrary
     public class AbilityVisualEffect : AbilityComponent
     {
         [SerializeField] private VisualEffect _visualEffect;
-        [SerializeField] private VisualEffectAsset _visualEffectAsset;
+        private VisualEffectAsset _visualEffectAsset;
         private bool _isActive;
-        private void Awake() => _visualEffect.Stop();
+        private void Awake()
+        {
+            if (_visualEffect == null)
+                _visualEffect = GetComponent<VisualEffect>();
 
-        public override void Init(Ability owner, JToken data, int index)
+            _visualEffect.Stop();
+        }
+
+        public override void Init(Ability owner, JToken dataFile, int index)
         {
             _isActive = false;
+
+            string path = AssetDatabase.GUIDToAssetPath(dataFile[index]["GUID"].Value<string>());
+            _visualEffectAsset = AssetDatabase.LoadAssetAtPath<VisualEffectAsset>(path);
+
             if (NextComponent != null)
-                NextComponent.Init(owner, data, index);
+                NextComponent.Init(owner, dataFile, ++index);
         }
 
         public override void Activate(Character target)

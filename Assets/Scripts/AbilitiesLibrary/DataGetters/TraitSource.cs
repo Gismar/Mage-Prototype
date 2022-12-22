@@ -6,15 +6,12 @@ namespace Mage_Prototype.AbilityLibrary
 {
     public abstract class TraitSource: MonoBehaviour
     {
-
-        [SerializeField] protected PredicateChecker _predicateChecker;
-
         protected float _percent;
-        protected bool IsInfoFromSelf;
+        protected bool _isInfoFromSelf;
         protected Character _owner;
         protected TraitInfo _critRate;
         protected TraitInfo _critDamage;
-        protected const string _root_Name = "Components";
+        protected PredicateChecker _predicateChecker;
 
         public virtual void Init(Character owner, JToken data, int index)
         {
@@ -23,14 +20,15 @@ namespace Mage_Prototype.AbilityLibrary
                 throw new System.Exception($"{_owner.name} does not contain DamageComponent"); // need's full unity name
 
             _percent = data[index]["Percent"].Value<float>();
-            IsInfoFromSelf = data[index]["InfoFromSelf"].Value<bool>();
+            _isInfoFromSelf = data[index]["InfoFromSelf"].Value<bool>();
 
             string name = (string)data[index]["PredicateName"]; // Returns null if there is nothing
 
             if (name != null)
             {
                 int value = data[index]["PredicateValue"].Value<int>();
-                _predicateChecker = StaticHelpers.CreatePredicateChecker(name, transform, value);
+                float threshold = data[index]["PredicateThreshold"].Value<float>();
+                _predicateChecker = StaticHelpers.CreatePredicateChecker(name, transform, value, threshold);
             }
 
                 component.TryGetTraitInfo(Trait.CritRate, out TraitInfo _critRate);
