@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magic Beam
   m_EditorClassIdentifier: 
   Name: Magic Beam
-  Level: 13
+  Level: 1
   BaseDataFile: {fileID: 4900000, guid: 2e960359a87c1b642a786631906af7b8, type: 3}
   Modifiers:
   - {fileID: 11400000, guid: 01faeba9b71f5ef4ead85c9877b0a15b, type: 2}

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Mage_Prototype.Effects
@@ -24,13 +25,17 @@ namespace Mage_Prototype.Effects
         }
         public abstract IEnumerator Remove();
         public abstract void Apply(Character target);
-
         public override bool Equals(object other)
         {
             if (other is Effect effect)
                 return effect.Source == Source;
 
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(base.GetHashCode(), Source, _trait, _modifier, _value, _duration);
         }
     }
 }

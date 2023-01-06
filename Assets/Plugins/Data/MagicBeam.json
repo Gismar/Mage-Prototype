@@ -1,7 +1,7 @@
 {
   "Name": "Magic Beam",
   "LevelData": {
-    "0": [
+    "1": [
       {
         "Name": "Instant Ability",
         "Cooldown": 10.00,
@@ -30,172 +30,7 @@
       },
       {
         "Name": "Get Damage",
-        "Percent": 125,
-        "InfoFromSelf": true
-      }
-    ],
-    "1": [
-      {
-        "Name": "Instant Ability",
-        "Cooldown": 9.75,
-        "ResourceType": "Mana",
-        "ResourceCost": 10
-      },
-      {
-        "Name": "Animation",
-        "GUID": "a5462f97b8e680f47b6a085721bdd91e"
-      },
-      {
-        "Name": "Lingering Hitbox",
-        "AffectsOwner": false,
-        "HitsPerSecond": 4,
-        "Duration": 3.25
-      },
-      {
-        "Name": "Visual Effect",
-        "GUID": "067315fa49ba5324ea58e2cfdd48451f"
-      },
-      {
-        "Name": "Apply Damage",
-        "TraitSourceName": "Damage",
-        "CanCrit": true,
-        "Element": "Magical"
-      },
-      {
-        "Name": "Get Damage",
         "Percent": 150,
-        "InfoFromSelf": true
-      }
-    ],
-    "2": [
-      {
-        "Name": "Instant Ability",
-        "Cooldown": 9.50,
-        "ResourceType": "Mana",
-        "ResourceCost": 10
-      },
-      {
-        "Name": "Animation",
-        "GUID": "a5462f97b8e680f47b6a085721bdd91e"
-      },
-      {
-        "Name": "Lingering Hitbox",
-        "AffectsOwner": false,
-        "HitsPerSecond": 4,
-        "Duration": 3.50
-      },
-      {
-        "Name": "Visual Effect",
-        "GUID": "067315fa49ba5324ea58e2cfdd48451f"
-      },
-      {
-        "Name": "Apply Damage",
-        "TraitSourceName": "Damage",
-        "CanCrit": true,
-        "Element": "Magical"
-      },
-      {
-        "Name": "Get Damage",
-        "Percent": 175,
-        "InfoFromSelf": true
-      }
-    ],
-    "3": [
-      {
-        "Name": "Instant Ability",
-        "Cooldown": 9.25,
-        "ResourceType": "Mana",
-        "ResourceCost": 10
-      },
-      {
-        "Name": "Animation",
-        "GUID": "a5462f97b8e680f47b6a085721bdd91e"
-      },
-      {
-        "Name": "Lingering Hitbox",
-        "AffectsOwner": false,
-        "HitsPerSecond": 4,
-        "Duration": 3.75
-      },
-      {
-        "Name": "Visual Effect",
-        "GUID": "067315fa49ba5324ea58e2cfdd48451f"
-      },
-      {
-        "Name": "Apply Damage",
-        "TraitSourceName": "Damage",
-        "CanCrit": true,
-        "Element": "Magical"
-      },
-      {
-        "Name": "Get Damage",
-        "Percent": 200,
-        "InfoFromSelf": true
-      }
-    ],
-    "4": [
-      {
-        "Name": "Instant Ability",
-        "Cooldown": 9.00,
-        "ResourceType": "Mana",
-        "ResourceCost": 10
-      },
-      {
-        "Name": "Animation",
-        "GUID": "a5462f97b8e680f47b6a085721bdd91e"
-      },
-      {
-        "Name": "Lingering Hitbox",
-        "AffectsOwner": false,
-        "HitsPerSecond": 4,
-        "Duration": 4.00
-      },
-      {
-        "Name": "Visual Effect",
-        "GUID": "067315fa49ba5324ea58e2cfdd48451f"
-      },
-      {
-        "Name": "Apply Damage",
-        "TraitSourceName": "Damage",
-        "CanCrit": true,
-        "Element": "Magical"
-      },
-      {
-        "Name": "Get Damage",
-        "Percent": 225,
-        "InfoFromSelf": true
-      }
-    ],
-    "5": [
-      {
-        "Name": "Instant Ability",
-        "Cooldown": 8.75,
-        "ResourceType": "Mana",
-        "ResourceCost": 10
-      },
-      {
-        "Name": "Animation",
-        "GUID": "a5462f97b8e680f47b6a085721bdd91e"
-      },
-      {
-        "Name": "Lingering Hitbox",
-        "AffectsOwner": false,
-        "HitsPerSecond": 4,
-        "Duration": 4.25
-      },
-      {
-        "Name": "Visual Effect",
-        "GUID": "067315fa49ba5324ea58e2cfdd48451f"
-      },
-      {
-        "Name": "Apply Damage",
-        "TraitSourceName": "Damage",
-        "CanCrit": true,
-        "Element": "Magical"
-      },
-      {
-        "Name": "Get Damage",
-        "Percent": 250,
         "InfoFromSelf": true
       }
     ],
@@ -204,7 +39,7 @@
         "Name": "Instant Ability",
         "Cooldown": 8.50,
         "ResourceType": "Mana",
-        "ResourceCost": 11
+        "ResourceCost": 15
       },
       {
         "Name": "Animation",
@@ -229,72 +64,6 @@
       {
         "Name": "Get Damage",
         "Percent": 300,
-        "InfoFromSelf": true
-      }
-    ],
-    "12": [
-      {
-        "Name": "Instant Ability",
-        "Cooldown": 8.25,
-        "ResourceType": "Mana",
-        "ResourceCost": 11
-      },
-      {
-        "Name": "Animation",
-        "GUID": "a5462f97b8e680f47b6a085721bdd91e"
-      },
-      {
-        "Name": "Lingering Hitbox",
-        "AffectsOwner": false,
-        "HitsPerSecond": 5,
-        "Duration": 4.75
-      },
-      {
-        "Name": "Visual Effect",
-        "GUID": "067315fa49ba5324ea58e2cfdd48451f"
-      },
-      {
-        "Name": "Apply Damage",
-        "TraitSourceName": "Damage",
-        "CanCrit": true,
-        "Element": "Magical"
-      },
-      {
-        "Name": "Get Damage",
-        "Percent": 350,
-        "InfoFromSelf": true
-      }
-    ],
-    "13": [
-      {
-        "Name": "Instant Ability",
-        "Cooldown": 8.00,
-        "ResourceType": "Mana",
-        "ResourceCost": 11
-      },
-      {
-        "Name": "Animation",
-        "GUID": "a5462f97b8e680f47b6a085721bdd91e"
-      },
-      {
-        "Name": "Lingering Hitbox",
-        "AffectsOwner": false,
-        "HitsPerSecond": 5,
-        "Duration": 5.00
-      },
-      {
-        "Name": "Visual Effect",
-        "GUID": "067315fa49ba5324ea58e2cfdd48451f"
-      },
-      {
-        "Name": "Apply Damage",
-        "TraitSourceName": "Damage",
-        "CanCrit": true,
-        "Element": "Magical"
-      },
-      {
-        "Name": "Get Damage",
-        "Percent": 400,
         "InfoFromSelf": true
       }
     ]

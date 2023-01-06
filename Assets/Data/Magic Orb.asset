@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5d5052576674f74b90fca82dfdd74c7, type: 3}
+  m_Name: Magic Orb
+  m_EditorClassIdentifier: 
+  Name: Magic Orb
+  Level: 1
+  BaseDataFile: {fileID: 4900000, guid: cd45a903848419c4d914b4a691e8c30a, type: 3}
+  Modifiers: []
+  AbilityPrefab: {fileID: 7978929320867537632, guid: 161a2def1f2b93f4f9e3103908fbe311,
+    type: 3}

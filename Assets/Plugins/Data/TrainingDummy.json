@@ -4,6 +4,8 @@
   "Exp": 0,
   "ResourceType": "Mana",
   "Traits": [
+    { "MoveSpeed": 10 },
+    { "AttackSpeed": 10},
     { "MaxHealth": 10000 },
     { "HealthRegen": 200 },
     { "Resource": 100 },

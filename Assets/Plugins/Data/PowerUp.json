@@ -1,126 +1,52 @@
 {
   "Name": "Power Up",
-  "Type": "Buff",
-  "DataType": "BuffData",
-  "Data": [
-    {
-      "Level": 0,
-      "BuffData": [
-        {
-          "Attribute": "Damage",
-          "Modifying": "Bonus",
-          "Value": 1,
-          "Duration": 3
-        },
-        {
-          "Attribute": "Stat",
-          "Modifying": "Bonus",
-          "Value": 2,
-          "Duration": 3
-        }
-      ]
-    },
-    {
-      "Level": 1,
-      "BuffData": [
-        {
-          "Attribute": "Damage",
-          "Modifying": "Bonus",
-          "Value": 2,
-          "Duration": 4
-        },
-        {
-          "Attribute": "Stat",
-          "Modifying": "Bonus",
-          "Value": 4,
-          "Duration": 4
-        }
-      ]
-    },
-    {
-      "Level": 2,
-      "BuffData": [
-        {
-          "Attribute": "Damage",
-          "Modifying": "Bonus",
-          "Value": 3,
-          "Duration": 5
-        },
-        {
-          "Attribute": "Stat",
-          "Modifying": "Bonus",
-          "Value": 6,
-          "Duration": 5
-        }
-      ]
-    },
-    {
-      "Level": 3,
-      "BuffData": [
-        {
-          "Attribute": "Damage",
-          "Modifying": "Bonus",
-          "Value": 4,
-          "Duration": 6
-        },
-        {
-          "Attribute": "Stat",
-          "Modifying": "Bonus",
-          "Value": 8,
-          "Duration": 6
-        }
-      ]
-    },
-    {
-      "Level": 21,
-      "BuffData": [
-        {
-          "Attribute": "Damage",
-          "Modifying": "Bonus",
-          "Value": 5,
-          "Duration": 7
-        },
-        {
-          "Attribute": "Stat",
-          "Modifying": "Bonus",
-          "Value": 10,
-          "Duration": 7
-        }
-      ]
-    },
-    {
-      "Level": 22,
-      "BuffData": [
-        {
-          "Attribute": "Damage",
-          "Modifying": "Bonus",
-          "Value": 6,
-          "Duration": 8
-        },
-        {
-          "Attribute": "Stat",
-          "Modifying": "Bonus",
-          "Value": 12,
-          "Duration": 8
-        }
-      ]
-    },
-    {
-      "Level": 23,
-      "BuffData": [
-        {
-          "Attribute": "Damage",
-          "Modifying": "Bonus",
-          "Value": 7,
-          "Duration": 9
-        },
-        {
-          "Attribute": "Stat",
-          "Modifying": "Bonus",
-          "Value": 14,
-          "Duration": 9
-        }
-      ]
-    }
-  ]
+  "LevelData": {
+    "1": [
+      {
+        "Name": "Instant Ability",
+        "Cooldown": 20.00,
+        "ResourceType": "Mana",
+        "ResourceCost": 20
+      },
+      {
+        "Name": "Animation",
+        "GUID": "a5462f97b8e680f47b6a085721bdd91e"
+      },
+      {
+        "Name": "Component Picker",
+        "PredicateTrueGUID": "c30d0187fec52704d98dcf7f6cf6b5c7",
+        "PredicateFalseGUID": "01149c323b0930443a852b8dc30aacd0",
+        "SkipCount": 3
+      },
+      {
+        "Name": "Visual Effect",
+        "GUID": "f1004a5b427339843897d9f3355d1c7b"
+      },
+      {
+        "Name": "Apply Buff",
+        "Trait": "Damage",
+        "Modifier": "Bonus",
+        "Value": 1,
+        "Duration": 3
+      },
+      {
+        "Name": "Apply Buff",
+        "Trait": "Stat",
+        "Modifier": "Bonus",
+        "Value": 2,
+        "Duration": 3
+      },
+      {
+        "Name": "Visual Effect",
+        "GUID": "482bedb143ccf7f4b8611c9e992c8277"
+      },
+      {
+        "Name": "Apply Buff",
+        "Trait": "MagicalDefense",
+        "Modifier": "Final",
+        "Value": -10,
+        "Duration": 3
+      }
+    ]
+  }
 }

@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
@@ -16,6 +12,7 @@ namespace Mage_Prototype.AbilityLibrary
         private float _radius;
         private Collider[] _colliders;
         private bool _affectsOwner;
+        private bool _affectsTarget;
 
         public override void Init(Ability owner, JToken data, int index)
         {
@@ -26,8 +23,9 @@ namespace Mage_Prototype.AbilityLibrary
             _colliders ??= new Collider[_max_collider_size];
 
             _radius = data[index]["Radius"].Value<float>();
-            _mask = LayerMask.NameToLayer(data[index]["Mask"].Value<string>());
+            _mask = LayerMask.GetMask(data[index]["Mask"].Value<string>());
             _affectsOwner = data[index]["AffectsOwner"].Value<bool>();
+            _affectsTarget = data[index]["AffectsTarget"].Value<bool>();
 
             NextComponent.Init(owner, data, ++index);
         }
@@ -39,8 +37,7 @@ namespace Mage_Prototype.AbilityLibrary
                 position: target.transform.position,
                 radius: _radius,
                 results: _colliders,
-                layerMask: _mask,
-                queryTriggerInteraction: QueryTriggerInteraction.Collide // Using triggers
+                layerMask: _mask
             );
 
             if (amountHit == 0) return;
@@ -50,7 +47,7 @@ namespace Mage_Prototype.AbilityLibrary
                 if (!_colliders[i].TryGetComponent(out Character newTarget))
                     continue;
 
-                if (newTarget == target)
+                if (_affectsTarget == false && newTarget == target)
                     continue;
 
                 if (_affectsOwner == false && newTarget == Owner.Caster)

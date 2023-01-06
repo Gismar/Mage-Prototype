@@ -15,4 +15,7 @@ MonoBehaviour:
   Name: Player
   StatsFile: {fileID: 4900000, guid: ad608dc162e89764a97399f9ff888d44, type: 3}
   Abilities:
+  - {fileID: 11400000, guid: 2a0e5067bcda0af4983aa835ba815356, type: 2}
   - {fileID: 11400000, guid: 9bec2c0a68ed2794c9789fd129a6a39d, type: 2}
+  - {fileID: 11400000, guid: 8c1e3b1f38356f2469f89e27dfa47012, type: 2}
+  - {fileID: 11400000, guid: 014bea41a250486488c4394f552d396a, type: 2}

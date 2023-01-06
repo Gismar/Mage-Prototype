@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace Mage_Prototype.AbilityLibrary
@@ -19,16 +20,24 @@ namespace Mage_Prototype.AbilityLibrary
         [SerializeField] protected AbilityComponent _predicateIsFalseComponent;
 
 
-        public override void Init(Ability owner, JToken dataFile, int index)
+        public override void Init(Ability owner, JToken data, int index)
         {
             Owner = owner;
-            if (_predicateIsTrueComponent == null)
-                throw new Exception($"{Owner.Name}'s Component Picker is missing a Predicate Is True Component");
-            if (_predicateIsFalseComponent == null)
-                throw new Exception($"{Owner.Name}'s Component Picker is missing a Predicate Is False Component");
 
-            _predicateIsTrueComponent.Init(owner, dataFile, index);
-            _predicateIsFalseComponent.Init(owner, dataFile, ++index);
+            string path = AssetDatabase.GUIDToAssetPath(data[index]["PredicateTrueGUID"].Value<string>());
+            _predicateIsTrueComponent = Instantiate(AssetDatabase.LoadAssetAtPath<AbilityComponent>(path), transform);
+
+            path = AssetDatabase.GUIDToAssetPath(data[index]["PredicateFalseGUID"].Value<string>());
+            _predicateIsFalseComponent = Instantiate(AssetDatabase.LoadAssetAtPath<AbilityComponent>(path), transform);
+
+            int offset = data[index]["SkipCount"].Value<int>();
+
+
+            if (_predicateIsTrueComponent != null)
+                _predicateIsTrueComponent.Init(owner, data, ++index);
+
+            if (_predicateIsFalseComponent != null)
+                _predicateIsFalseComponent.Init(owner, data, index + offset);
         }
     }
 }

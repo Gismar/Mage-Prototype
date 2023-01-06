@@ -15,7 +15,7 @@ namespace Mage_Prototype.AbilityLibrary
 
         // Init Data
         private bool _isLinear;
-        private float _maxSqDistance;
+        private float _maxDistance;
         private int _speed;
         private int _maxPierceCount;
 
@@ -44,11 +44,9 @@ namespace Mage_Prototype.AbilityLibrary
             GetModels();
 
             _isLinear = data[index]["Linear"].Value<bool>();
-            _maxSqDistance = data[index]["MaxDistance"].Value<float>();
+            _maxDistance = data[index]["MaxDistance"].Value<float>();
             _speed = data[index]["Speed"].Value<int>();
             _maxPierceCount = data[index]["PierceCount"].Value<int>();
-
-            _maxSqDistance *= _maxSqDistance;
 
             Lollipop.Init(owner, data, ++index);
             NextComponent.Init(owner, data, ++index);
@@ -79,8 +77,8 @@ namespace Mage_Prototype.AbilityLibrary
             Vector3 bDir;
 
             Vector3 end;
-            if (target == null)
-                end = StaticHelpers.GetInfrontOfCharacter(_ownerModel, Owner.transform, 10f);
+            if (_maxPierceCount > 0 || target == null)
+                end = StaticHelpers.GetInfrontOfCharacter(_ownerModel, Owner.transform, _maxDistance);
             else
                 end = target.transform.position + Vector3.up; // Character Coords are at feet
 

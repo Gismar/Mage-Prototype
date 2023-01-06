@@ -12,8 +12,8 @@ namespace Mage_Prototype.AbilityLibrary
         private bool _isActive;
         private void Awake()
         {
-            if (_visualEffect == null)
-                _visualEffect = GetComponent<VisualEffect>();
+            if (!TryGetComponent(out _visualEffect))
+                _visualEffect = GetComponentInParent<VisualEffect>();
 
             _visualEffect.Stop();
         }

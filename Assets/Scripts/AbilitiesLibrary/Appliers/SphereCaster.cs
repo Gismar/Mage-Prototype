@@ -20,7 +20,7 @@ namespace Mage_Prototype.AbilityLibrary
                 throw new Exception($"{Owner.Name}'s SphereCaster does not contain a Next Component");
 
             _radius = data[index]["Radius"].Value<float>();
-            _mask = LayerMask.NameToLayer(data[index]["Mask"].Value<string>());
+            _mask = LayerMask.GetMask(data[index]["Mask"].Value<string>());
             _maxDistance = data[index]["MaxDistance"].Value<float>();
 
             NextComponent.Init(owner, data, ++index);

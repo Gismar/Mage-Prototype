@@ -3,40 +3,14 @@ using Mage_Prototype.Effects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 namespace Mage_Prototype
 {
-    public enum Trait
-    {
-        Stat,
-        Damage,
-        CritRate,
-        CritDamage,
-
-        MaxHealth,
-        HealthRegen,
-        Resource,
-        ResourceRegen,
-
-        PhysicalDefense,
-        MagicalDefense,
-        ProjectileDefense,
-
-        FireDefense,
-        IceDefense,
-        LightDefense,
-        DarkDefense,
-
-        MoveSpeed,
-        AttackSpeed,
-        Perception,
-        Evasion
-    }
-
     [RequireComponent(typeof(ResourceComponent))]
     [RequireComponent(typeof(HealthComponent))]
-    public class Character : MonoBehaviour
+    public class Character: MonoBehaviour
     {
         [field: SerializeField] public CharacterScriptable ScriptableData { get; set; }
         public List<ICharacterComponent> Components { get; private set; }
@@ -48,6 +22,7 @@ namespace Mage_Prototype
         public List<Ability> Abilities { get; private set; }
         public List<Effect> Effects { get; } = new();
 
+        [SerializeField] private TMP_Text _text; 
         private TraitInfo _moveSpeed;
         private TraitInfo _attackSpeed;
 
@@ -81,6 +56,17 @@ namespace Mage_Prototype
 
         public bool TryGetTraitInfo(Trait trait, out TraitInfo traitInfo)
         {
+            if (trait == Trait.MoveSpeed)
+            {
+                traitInfo = _moveSpeed;
+                return true;
+            }
+            if (trait == Trait.AttackSpeed)
+            {
+                traitInfo = _attackSpeed;
+                return true;
+            }
+
             foreach (ICharacterComponent temp in Components)
                 if (temp.TryGetTraitInfo(trait, out traitInfo))
                     return true;
@@ -111,6 +97,13 @@ namespace Mage_Prototype
                 effect.StopCoroutine(effect.Remove());
 
             Destroy(gameObject);
+        }
+
+        public void Update()
+        {
+            _text.text = "";
+            if (IsRooted) _text.text = "Rooted";
+            if (IsStunned) _text.text = "Stunned";
         }
     }
 }

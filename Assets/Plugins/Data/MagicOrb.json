@@ -1,44 +1,109 @@
 {
-	"Name": "Magic Orb",
-	"Type": "AttackAbility",
-	"DataType": "AttackAbilityData",
-	"Element": "Magical",
-	"Data": [
-		{
-			"Level": 0,
-			"Damage": 125
-		},
-		{
-			"Level": 1,
-			"Damage": 150
-		},
-		{
-			"Level": 2,
-			"Damage": 175
-		},
-		{
-			"Level": 3,
-			"Damage": 200
-		},
-		{
-			"Level": 4,
-			"Damage": 225
-		},
-		{
-			"Level": 5,
-			"Damage": 250
-		},
-		{
-			"Level": 21,
-			"Damage": 300
-		},
-		{
-			"Level": 22,
-			"Damage": 350
-		},
-		{
-			"Level": 23,
-			"Damage": 400
-		}
-	]
+	"Name": "Magic Beam",
+	"LevelData": {
+		"1": [
+			{
+				"Name": "Instant Ability",
+				"Cooldown": 3.00,
+				"ResourceType": "Mana",
+				"ResourceCost": 5
+			},
+			{
+				"Name": "Animation",
+				"GUID": "a5462f97b8e680f47b6a085721bdd91e"
+			},
+			{
+				"Name": "Create Projectile",
+				"GUID": "4ac423a96b3db7441b9f3d40c7a9af38",
+				"ProjectileCreationCount": 1
+			},
+			{
+				"Name": "Projectile",
+				"Linear": true,
+				"MaxDistance": 5,
+				"Speed": 400,
+				"PierceCount": 0
+			},
+			{
+				"Name": "Sphere Caster",
+				"Radius": 1.0,
+				"MaxDistance": 0.1,
+				"Mask": "Characters"
+			},
+			{
+				"Name": "Apply Damage",
+				"TraitSourceName": "Damage",
+				"CanCrit": true,
+				"Element": "Magical"
+			},
+			{
+				"Name": "Get Damage",
+				"Percent": 75,
+				"InfoFromSelf": true
+			},
+			{
+				"Name": "Apply Damage",
+				"TraitSourceName": "Damage",
+				"CanCrit": true,
+				"Element": "Magical"
+			},
+			{
+				"Name": "Get Damage",
+				"Percent": 80,
+				"InfoFromSelf": true
+			}
+		],
+		"11": [
+			{
+				"Name": "Instant Ability",
+				"Cooldown": 2.00,
+				"ResourceType": "Mana",
+				"ResourceCost": 7
+			},
+			{
+				"Name": "Animation",
+				"GUID": "a5462f97b8e680f47b6a085721bdd91e"
+			},
+			{
+				"Name": "Create Projectile",
+				"GUID": "4ac423a96b3db7441b9f3d40c7a9af38",
+				"ProjectileCreationCount": 1
+			},
+			{
+				"Name": "Projectile",
+				"Linear": true,
+				"MaxDistance": 7.00,
+				"Speed": 700,
+				"PierceCount": 1
+			},
+			{
+				"Name": "Sphere Caster",
+				"Radius": 1.0,
+				"MaxDistance": 0.1,
+				"Mask": "Characters"
+			},
+			{
+				"Name": "Apply Damage",
+				"TraitSourceName": "Damage",
+				"CanCrit": true,
+				"Element": "Magical"
+			},
+			{
+				"Name": "Get Damage",
+				"Percent": 140,
+				"InfoFromSelf": true
+			},
+			{
+				"Name": "Apply Damage",
+				"TraitSourceName": "Damage",
+				"CanCrit": true,
+				"Element": "Magical"
+			},
+			{
+				"Name": "Get Damage",
+				"Percent": 160,
+				"InfoFromSelf": true
+			}
+		]
+	}
 }

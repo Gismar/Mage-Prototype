@@ -1,0 +1,35 @@
+{
+  "Name": "Ice Entrapment",
+  "LevelData": {
+    "1": [
+      {
+        "Name": "Instant Ability",
+        "Cooldown": 20.00,
+        "ResourceType": "Mana",
+        "ResourceCost": 20
+      },
+      {
+        "Name": "Animation",
+        "GUID": "a5462f97b8e680f47b6a085721bdd91e"
+      },
+      {
+        "Name": "Display Mesh",
+        "Duration": 0.5
+      },
+      {
+        "Name": "Overlap Sphere",
+        "Radius": "10",
+        "Mask": "Characters",
+        "AffectsOwner": "false",
+        "AffectsTarget": true
+      },
+      {
+        "Name": "Apply Buff",
+        "Trait": "MoveSpeed",
+        "Modifier": "Limiter",
+        "Value": 1,
+        "Duration": 2
+      }
+    ]
+  }
+}
